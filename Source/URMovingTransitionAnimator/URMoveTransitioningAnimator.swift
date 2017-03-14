@@ -201,7 +201,7 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
     }
 
     func makeScaleAnimation(target: CALayer) {
-        guard let movedView = self.movingView else { return }
+        guard let _ = self.movingView else { return }
 
         let timingFunction = CAMediaTimingFunction(controlPoints: 5/6, 0.1, 1/6, 0.9)
         let duration = self.transitionDuration(using: self.transitionContext)
