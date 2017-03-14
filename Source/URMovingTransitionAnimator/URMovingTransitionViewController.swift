@@ -8,8 +8,7 @@
 
 import UIKit
 
-open
-class URMovingTransitionViewController: UIViewController, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
+open class URMovingTransitionViewController: UIViewController, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
     var panGesture: UIScreenEdgePanGestureRecognizer!
 
     var animator: UIViewControllerAnimatedTransitioning?
@@ -50,7 +49,6 @@ class URMovingTransitionViewController: UIViewController, UINavigationController
     }
 
     func pan(gesture: UIScreenEdgePanGestureRecognizer) {
-        //        print("\(#function) gesture: \(gesture)\n")
 
         guard let view = self.navigationController?.view else { return }
 
@@ -84,7 +82,6 @@ class URMovingTransitionViewController: UIViewController, UINavigationController
 
     // MARK: - UINavigationControllerDelegate
     public func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        print(#function)
         if operation == .push || operation == .pop {
             if let customAnimator = self.animator as? URMoveTransitioningAnimator {
                 customAnimator.isConsiderableNavigationHeight = true
@@ -100,12 +97,7 @@ class URMovingTransitionViewController: UIViewController, UINavigationController
         return self.interactionController
     }
 
-    public func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        print(#function)
-    }
-
     public func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        print(#function)
         if !(viewController is URMovingTransitionViewController) && !self.checkPopableViewController {
             navigationController.delegate = nil
         }
@@ -113,21 +105,10 @@ class URMovingTransitionViewController: UIViewController, UINavigationController
 
     // MARK: - UIGestureRecognizerDelegate
     public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        //        print("\(#function) gestureRecognizer: \(gestureRecognizer)\n")
         if gestureRecognizer === self.panGesture && self.navigationController?.topViewController is URTransitionReceivable {
             return true
         }
 
-        return false
-    }
-
-    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        //        print("\(#function) gestureRecognizer: \(gestureRecognizer),\n otherGestureRecognizer: \(otherGestureRecognizer)\n")
-        return false
-    }
-
-    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        //        print("\(#function) gestureRecognizer: \(gestureRecognizer),\n otherGestureRecognizer: \(otherGestureRecognizer)\n")
         return false
     }
 }

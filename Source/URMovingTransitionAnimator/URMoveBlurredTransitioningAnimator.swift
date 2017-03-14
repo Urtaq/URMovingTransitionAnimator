@@ -56,13 +56,11 @@ public class URMoveBlurredTransitioningAnimator: URMoveTransitioningAnimator {
         blurredView.frame = UIScreen.main.bounds
         transitionContext.containerView.insertSubview(blurredView, belowSubview: movedView)
 
-//        if self.transitionDirection == .push {
-            if let fromViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) {
-                self.fromViewSnapShot = fromViewController.view.snapshotView(afterScreenUpdates: false)!
-                transitionContext.containerView.insertSubview(self.fromViewSnapShot!, belowSubview: blurredView)
-            }
-//        }
-
+        if let fromViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) {
+            self.fromViewSnapShot = fromViewController.view.snapshotView(afterScreenUpdates: false)!
+            transitionContext.containerView.insertSubview(self.fromViewSnapShot!, belowSubview: blurredView)
+        }
+        
         return finishingFrame
     }
 }

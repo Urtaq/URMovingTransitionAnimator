@@ -69,7 +69,7 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
 
     var transitionContext: UIViewControllerContextTransitioning!
 
-    init(view: UIView, startingFrame: CGRect = CGRect.zero) {
+    public init(view: UIView, startingFrame: CGRect = CGRect.zero) {
         super.init()
 
         self.movingView = view
@@ -77,7 +77,7 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
         self.startingSize = startingFrame.size
     }
 
-    init(view: UIView, startingOrigin: CGPoint = CGPoint.zero) {
+    public init(view: UIView, startingOrigin: CGPoint = CGPoint.zero) {
         super.init()
 
         self.movingView = view
@@ -220,9 +220,6 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
         if let movedView = self.movingView {
             print("layer is \(movedView.layer.frame), layer position is \(movedView.layer.position), layer bounds is \(movedView.layer.bounds), finishingFrame is \(finishingFrame)")
 
-            let animationGroup = CAAnimationGroup()
-            animationGroup.animations = [self.moveAnimation, self.scaleAnimation]
-//            _movingLayer.add(animationGroup, forKey: nil)
             movedView.layer.add(self.moveAnimation, forKey: nil)
             movedView.layer.position = CGPoint(x: (self.finishingFrame.origin.x + (self.finishingFrame.width / 2.0)), y: (self.finishingFrame.origin.y + (self.finishingFrame.height / 2.0)))
             _movingLayer.add(self.scaleAnimation, forKey: nil)
@@ -271,7 +268,7 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
             }
             block(transitionContext)
         }
-
+        
         UIView.animateKeyframes(withDuration: self.transitionDuration(using: transitionContext), delay: 0.0, options: UIViewKeyframeAnimationOptions.calculationModeLinear, animations: basicAnimationBlock) { (finish) in
             print("??")
             basicAnimationFinishedBlock(finish)
