@@ -1,5 +1,5 @@
 //
-//  URNavigationControllerDelegate.swift
+//  URMovingTransitionViewController.swift
 //  URMovingTransitionAnimator
 //
 //  Created by jegumhon on 2017. 2. 8..
@@ -8,7 +8,8 @@
 
 import UIKit
 
-public class URNavigationControllerDelegate: UIViewController, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
+open
+class URMovingTransitionViewController: UIViewController, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
     var panGesture: UIScreenEdgePanGestureRecognizer!
 
     var animator: UIViewControllerAnimatedTransitioning?
@@ -19,7 +20,7 @@ public class URNavigationControllerDelegate: UIViewController, UINavigationContr
 
         let navigationStackCount = navigationController.viewControllers.count
         if navigationStackCount > 1 {
-            if navigationController.viewControllers[navigationStackCount - 2] is URNavigationControllerDelegate {
+            if navigationController.viewControllers[navigationStackCount - 2] is URMovingTransitionViewController {
                 return true
             }
         }
@@ -27,7 +28,7 @@ public class URNavigationControllerDelegate: UIViewController, UINavigationContr
         return false
     }
 
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
 
         self.panGesture = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(pan))
@@ -38,7 +39,7 @@ public class URNavigationControllerDelegate: UIViewController, UINavigationContr
         self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
     }
 
-    override func viewWillAppear(_ animated: Bool) {
+    override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         self.navigationController?.delegate = self
@@ -49,7 +50,7 @@ public class URNavigationControllerDelegate: UIViewController, UINavigationContr
     }
 
     func pan(gesture: UIScreenEdgePanGestureRecognizer) {
-//        print("\(#function) gesture: \(gesture)\n")
+        //        print("\(#function) gesture: \(gesture)\n")
 
         guard let view = self.navigationController?.view else { return }
 
@@ -82,7 +83,7 @@ public class URNavigationControllerDelegate: UIViewController, UINavigationContr
     }
 
     // MARK: - UINavigationControllerDelegate
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         print(#function)
         if operation == .push || operation == .pop {
             if let customAnimator = self.animator as? URMoveTransitioningAnimator {
@@ -95,24 +96,24 @@ public class URNavigationControllerDelegate: UIViewController, UINavigationContr
         return nil
     }
 
-    func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+    public func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         return self.interactionController
     }
 
-    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+    public func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         print(#function)
     }
 
-    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+    public func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         print(#function)
-        if !(viewController is URNavigationControllerDelegate) && !self.checkPopableViewController {
+        if !(viewController is URMovingTransitionViewController) && !self.checkPopableViewController {
             navigationController.delegate = nil
         }
     }
 
     // MARK: - UIGestureRecognizerDelegate
-    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-//        print("\(#function) gestureRecognizer: \(gestureRecognizer)\n")
+    public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        //        print("\(#function) gestureRecognizer: \(gestureRecognizer)\n")
         if gestureRecognizer === self.panGesture && self.navigationController?.topViewController is URTransitionReceivable {
             return true
         }
@@ -120,13 +121,13 @@ public class URNavigationControllerDelegate: UIViewController, UINavigationContr
         return false
     }
 
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-//        print("\(#function) gestureRecognizer: \(gestureRecognizer),\n otherGestureRecognizer: \(otherGestureRecognizer)\n")
+    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        //        print("\(#function) gestureRecognizer: \(gestureRecognizer),\n otherGestureRecognizer: \(otherGestureRecognizer)\n")
         return false
     }
 
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-//        print("\(#function) gestureRecognizer: \(gestureRecognizer),\n otherGestureRecognizer: \(otherGestureRecognizer)\n")
+    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        //        print("\(#function) gestureRecognizer: \(gestureRecognizer),\n otherGestureRecognizer: \(otherGestureRecognizer)\n")
         return false
     }
 }
