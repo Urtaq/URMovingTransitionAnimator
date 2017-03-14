@@ -13,7 +13,7 @@ public protocol URTransitionReceivable: class {
 
     func transitionFinishingFrame(startingFrame: CGRect) -> CGRect
     func makeTransitionView(originView: UIView)
-    func removeTransitionView()
+    func removeTransitionView(duration: Double)
 }
 
 public extension URTransitionReceivable where Self: UIViewController {
