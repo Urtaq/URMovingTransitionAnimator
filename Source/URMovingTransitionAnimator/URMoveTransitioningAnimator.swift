@@ -20,17 +20,17 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
                 return
             }
 
-            let view = UIView(frame: newView.frame)
-            view.layer.addSublayer(newView.layer)
+//            let view = UIView(frame: newView.frame)
             self._movingLayer = newView.layer
-            self._movingLayer.contentsGravity = view.layer.contentsGravity
+            self._movingLayer.contentsGravity = newView.layer.contentsGravity
 
 //            view.addSubview(newView)
 //            view.clipsToBounds = true
 
 //            newView.autoresizingMask = [.flexibleLeftMargin, .flexibleTopMargin, .flexibleWidth, .flexibleHeight]
 
-            self._movingView = view
+//            self._movingView = view
+            self._movingView = newView
         }
     }
 
@@ -155,14 +155,14 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
                 return
             }
 
+            if let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to), toViewController is URTransitionReceivable && !self.isLazyCompletion {
+                (toViewController as! URTransitionReceivable).removeTransitionView(duration: self.transitionFinishDuration)
+            }
+
             UIView.animate(withDuration: self.transitionFinishDuration, animations: {
                 movedView.alpha = 0.1
             }, completion: { (finish) in
                 movedView.removeFromSuperview()
-
-                if let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to), toViewController is URTransitionReceivable && !self.isLazyCompletion {
-                    (toViewController as! URTransitionReceivable).removeTransitionView()
-                }
 
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
             })
@@ -195,41 +195,69 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
     var scaleAnimation: CABasicAnimation! {
         guard let movedView = self.movingView else { return nil }
 
+        self.makeScaleAnimation(target: _movingLayer)
+
+        return _scaleAnimation
+    }
+
+    func makeScaleAnimation(target: CALayer) {
+        guard let movedView = self.movingView else { return }
+
         let timingFunction = CAMediaTimingFunction(controlPoints: 5/6, 0.1, 1/6, 0.9)
         let duration = self.transitionDuration(using: self.transitionContext)
 
         _scaleAnimation = CABasicAnimation(keyPath: "bounds")
 
         _scaleAnimation.timingFunction = timingFunction
-        _scaleAnimation.fromValue = movedView.layer.bounds
-        _scaleAnimation.toValue = CGRect(origin: movedView.layer.bounds.origin, size: self.finishingFrame.size)
+        _scaleAnimation.fromValue = target.bounds
+        _scaleAnimation.toValue = CGRect(origin: target.bounds.origin, size: self.finishingFrame.size)
         _scaleAnimation.duration = duration
 
         _scaleAnimation.fillMode = kCAFillModeForwards
         _scaleAnimation.isRemovedOnCompletion = false
-
-        return _scaleAnimation
     }
 
-    func makeMovingKeyframe(_ movingView: UIView?, _ finishingFrame: CGRect) -> Void {
-        print(#function)
-        if let movedView = movingView {
-//            movedView.transform = CGAffineTransform.identity
-//            movedView.frame = finishingFrame
+    func makeLayerAnimation() {
+        if let movedView = self.movingView {
+            let animationGroup = CAAnimationGroup()
+            animationGroup.animations = [self.moveAnimation, self.scaleAnimation]
+            animationGroup.duration = self.transitionDuration(using: self.transitionContext)
+            _movingLayer.add(animationGroup, forKey: nil)
+
+            print("movedView layer is \(movedView.layer.frame), layer position is \(movedView.layer.position), layer bounds is \(movedView.layer.bounds), finishingFrame is \(finishingFrame)")
+
+            //            _movingLayer.add(self.moveAnimation, forKey: nil)
+
+            print("movedView layer is \(movedView.layer.frame), layer position is \(movedView.layer.position), layer bounds is \(movedView.layer.bounds), finishingFrame is \(finishingFrame)")
+            movedView.layer.position = CGPoint(x: (self.finishingFrame.origin.x + (self.finishingFrame.width / 2.0)), y: (self.finishingFrame.origin.y + (self.finishingFrame.height / 2.0)))
+
+            print("movedView layer is \(movedView.layer.frame), layer position is \(movedView.layer.position), layer bounds is \(movedView.layer.bounds), finishingFrame is \(finishingFrame)")
+
+
+            print("_movingLayer is \(_movingLayer.frame), layer position is \(_movingLayer.position), layer bounds is \(_movingLayer.bounds), finishingFrame is \(finishingFrame)")
+            //            _movingLayer.add(self.scaleAnimation, forKey: nil)
+
+            print("_movingLayer is \(_movingLayer.frame), layer position is \(_movingLayer.position), layer bounds is \(_movingLayer.bounds), finishingFrame is \(finishingFrame)")
+            _movingLayer.bounds = CGRect(origin: _movingLayer.bounds.origin, size: self.finishingFrame.size)
+
+            print("_movingLayer is \(_movingLayer.frame), layer position is \(_movingLayer.position), layer bounds is \(_movingLayer.bounds), finishingFrame is \(finishingFrame)")
         }
+    }
+
+    func makeMovingKeyframe(_ movingView: UIView?, _ finishingFrame: CGRect, withRelativeStartTime: Double, relativeDuration: Double) -> Void {
+
+        UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0, animations: {
+            if let movedView = movingView {
+                movedView.transform = CGAffineTransform.identity
+                //                movedView.frame = finishingFrame
+            }
+        })
     }
 
     func startAnimation(using transitionContext: UIViewControllerContextTransitioning, finishingFrame: CGRect) {
 
         guard let fromViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) else { return }
         guard let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) else { return }
-
-        if let movedView = self.movingView {
-            movedView.layer.add(self.moveAnimation, forKey: nil)
-            movedView.layer.position = CGPoint(x: (self.finishingFrame.origin.x + (self.finishingFrame.width / 2.0)), y: (self.finishingFrame.origin.y + (self.finishingFrame.height / 2.0)))
-            _movingLayer.add(self.scaleAnimation, forKey: nil)
-            _movingLayer.bounds = CGRect(origin: _movingLayer.bounds.origin, size: self.finishingFrame.size)
-        }
 
         let basicAnimationBlock: () -> Void = {
             print("basicAnimationBlock")
@@ -242,9 +270,7 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
             })
 
             if self.scale == 1 || self.transitionDirection == .pop {
-                UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0, animations: {
-                    self.makeMovingKeyframe(self.movingView, finishingFrame)
-                })
+                self.makeMovingKeyframe(self.movingView, finishingFrame, withRelativeStartTime: 0.0, relativeDuration: 1.0)
             } else {
                 UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.6, animations: {
                     if let movedView = self.movingView {
@@ -252,9 +278,7 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
                     }
                 })
 
-                UIView.addKeyframe(withRelativeStartTime: 0.6, relativeDuration: 0.4, animations: {
-                    self.makeMovingKeyframe(self.movingView, finishingFrame)
-                })
+                self.makeMovingKeyframe(self.movingView, finishingFrame, withRelativeStartTime: 0.6, relativeDuration: 0.4)
             }
         }
 
@@ -273,6 +297,8 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
             }
             block(transitionContext)
         }
+
+        self.makeLayerAnimation()
         
         UIView.animateKeyframes(withDuration: self.transitionDuration(using: transitionContext), delay: 0.0, options: UIViewKeyframeAnimationOptions.calculationModeLinear, animations: basicAnimationBlock) { (finish) in
             basicAnimationFinishedBlock(finish)

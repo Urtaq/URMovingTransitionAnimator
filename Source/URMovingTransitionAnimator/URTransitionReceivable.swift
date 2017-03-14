@@ -27,9 +27,9 @@ public extension URTransitionReceivable where Self: UIViewController {
         }
     }
 
-    func removeTransitionView() {
+    func removeTransitionView(duration: Double) {
         if let view = self.transitionView {
-            UIView.animate(withDuration: 1.5, animations: {
+            UIView.animate(withDuration: duration, animations: {
                 view.alpha = 0.1
             }, completion: { (finish) in
                 self.view.sendSubview(toBack: view)

@@ -65,18 +65,18 @@ open class URMovingTransitionViewController: UIViewController, UINavigationContr
         } else if gesture.state == .cancelled {
             self.interactionController.cancel()
             print("######### cancel")
-        } else if gesture.state == .ended {
+        } else if gesture.state == .ended || gesture.state == .cancelled || gesture.state == .failed {
             let translation = gesture.translation(in: view)
             let d: CGFloat = fabs(translation.x / view.bounds.width)
 
             if gesture.velocity(in: view).x > 0 || d > 0.5 {
                 self.interactionController.finish()
                 print("######### finish")
-                self.interactionController = nil
             } else {
                 self.interactionController.cancel()
                 print("######### cancel")
             }
+            self.interactionController = nil
         }
     }
 

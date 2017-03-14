@@ -13,16 +13,18 @@ public class URMoveBlurredTransitioningAnimator: URMoveTransitioningAnimator {
     var fromViewSnapShot: UIView?
     var blurView: UIVisualEffectView?
 
-    override func makeMovingKeyframe(_ movingView: UIView?, _ finishingFrame: CGRect) {
+    override func makeMovingKeyframe(_ movingView: UIView?, _ finishingFrame: CGRect, withRelativeStartTime: Double, relativeDuration: Double) {
         print("override " + #function)
-        super.makeMovingKeyframe(movingView, finishingFrame)
+        super.makeMovingKeyframe(movingView, finishingFrame, withRelativeStartTime: withRelativeStartTime, relativeDuration: relativeDuration)
 
-        let blurEffect = UIBlurEffect(style: .light)
-//        let vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect)
+        UIView.addKeyframe(withRelativeStartTime: withRelativeStartTime, relativeDuration: relativeDuration) {
+            let blurEffect = UIBlurEffect(style: .light)
+//            let vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect)
 
-        self.blurView?.effect = blurEffect
+            self.blurView?.effect = blurEffect
 
-        self.fromViewSnapShot?.transform = CGAffineTransform(scaleX: 0.97, y: 0.97)
+            self.fromViewSnapShot?.transform = CGAffineTransform(scaleX: 0.97, y: 0.97)
+        }
     }
 
     func initBlurredView() {
@@ -35,16 +37,16 @@ public class URMoveBlurredTransitioningAnimator: URMoveTransitioningAnimator {
             self.blurView?.effect = nil
             self.fromViewSnapShot?.alpha = 0.0
 
+            if let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to), toViewController is URTransitionReceivable && !self.isLazyCompletion {
+                (toViewController as! URTransitionReceivable).removeTransitionView(duration: self.transitionFinishDuration)
+            }
+
             UIView.animate(withDuration: self.transitionFinishDuration, animations: {
                 self.movingView?.alpha = 0.8
             }, completion: { (finish) in
                 self.movingView?.removeFromSuperview()
                 self.blurView?.removeFromSuperview()
                 self.fromViewSnapShot?.removeFromSuperview()
-
-                if let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to), toViewController is URTransitionReceivable && !self.isLazyCompletion {
-                    (toViewController as! URTransitionReceivable).removeTransitionView()
-                }
 
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
             })
