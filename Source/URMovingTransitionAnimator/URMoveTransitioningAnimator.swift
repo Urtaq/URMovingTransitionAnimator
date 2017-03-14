@@ -8,7 +8,7 @@
 
 import Foundation
 
-class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     fileprivate var _movingView: UIView?
     var movingView: UIView? {
         get {

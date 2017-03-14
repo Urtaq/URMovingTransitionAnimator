@@ -8,7 +8,7 @@
 
 import Foundation
 
-class URMoveBlurredTransitioningAnimator: URMoveTransitioningAnimator {
+public class URMoveBlurredTransitioningAnimator: URMoveTransitioningAnimator {
 
     var fromViewSnapShot: UIView?
     var blurView: UIVisualEffectView?

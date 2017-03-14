@@ -8,7 +8,7 @@
 
 import UIKit
 
-class URNavigationControllerDelegate: UIViewController, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
+public class URNavigationControllerDelegate: UIViewController, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
     var panGesture: UIScreenEdgePanGestureRecognizer!
 
     var animator: UIViewControllerAnimatedTransitioning?
