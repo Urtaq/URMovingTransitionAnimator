@@ -42,6 +42,10 @@ public class URMoveBlurredTransitioningAnimator: URMoveTransitioningAnimator {
                 self.blurView?.removeFromSuperview()
                 self.fromViewSnapShot?.removeFromSuperview()
 
+                if let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to), toViewController is URTransitionReceivable && !self.isLazyCompletion {
+                    (toViewController as! URTransitionReceivable).removeTransitionView()
+                }
+
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
             })
         }

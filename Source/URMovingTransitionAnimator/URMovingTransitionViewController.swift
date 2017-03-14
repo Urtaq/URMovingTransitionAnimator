@@ -11,7 +11,7 @@ import UIKit
 open class URMovingTransitionViewController: UIViewController, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
     var panGesture: UIScreenEdgePanGestureRecognizer!
 
-    var animator: UIViewControllerAnimatedTransitioning?
+    public var animator: UIViewControllerAnimatedTransitioning?
     var interactionController: UIPercentDrivenInteractiveTransition!
 
     var checkPopableViewController: Bool {

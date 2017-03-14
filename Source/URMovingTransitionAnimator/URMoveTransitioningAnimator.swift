@@ -66,23 +66,28 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
 
     var transitionPreAction: (() -> Void)?
     var transitionCompletion: ((_ transitionContext: UIViewControllerContextTransitioning) -> Void)?
+    var isLazyCompletion: Bool = false
 
     var transitionContext: UIViewControllerContextTransitioning!
 
-    public init(view: UIView, startingFrame: CGRect = CGRect.zero) {
+    public init(view: UIView, startingFrame: CGRect = CGRect.zero, isLazyCompletion: Bool = false) {
         super.init()
 
         self.movingView = view
         self.startingPoint = startingFrame.origin
         self.startingSize = startingFrame.size
+
+        self.isLazyCompletion = isLazyCompletion
     }
 
-    public init(view: UIView, startingOrigin: CGPoint = CGPoint.zero) {
+    public init(view: UIView, startingOrigin: CGPoint = CGPoint.zero, isLazyCompletion: Bool = false) {
         super.init()
 
         self.movingView = view
         self.startingPoint = startingOrigin
         self.startingSize = view.bounds.size
+
+        self.isLazyCompletion = isLazyCompletion
     }
 
     public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
@@ -155,6 +160,10 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
             }, completion: { (finish) in
                 movedView.removeFromSuperview()
 
+                if let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to), toViewController is URTransitionReceivable && !self.isLazyCompletion {
+                    (toViewController as! URTransitionReceivable).removeTransitionView()
+                }
+
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
             })
         }
@@ -207,19 +216,15 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
         if let movedView = movingView {
 //            movedView.transform = CGAffineTransform.identity
 //            movedView.frame = finishingFrame
-
-            movedView.backgroundColor = UIColor.red
         }
     }
 
     func startAnimation(using transitionContext: UIViewControllerContextTransitioning, finishingFrame: CGRect) {
-        print(#function)
+
         guard let fromViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) else { return }
         guard let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) else { return }
 
         if let movedView = self.movingView {
-            print("layer is \(movedView.layer.frame), layer position is \(movedView.layer.position), layer bounds is \(movedView.layer.bounds), finishingFrame is \(finishingFrame)")
-
             movedView.layer.add(self.moveAnimation, forKey: nil)
             movedView.layer.position = CGPoint(x: (self.finishingFrame.origin.x + (self.finishingFrame.width / 2.0)), y: (self.finishingFrame.origin.y + (self.finishingFrame.height / 2.0)))
             _movingLayer.add(self.scaleAnimation, forKey: nil)
@@ -270,7 +275,6 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
         }
         
         UIView.animateKeyframes(withDuration: self.transitionDuration(using: transitionContext), delay: 0.0, options: UIViewKeyframeAnimationOptions.calculationModeLinear, animations: basicAnimationBlock) { (finish) in
-            print("??")
             basicAnimationFinishedBlock(finish)
         }
     }

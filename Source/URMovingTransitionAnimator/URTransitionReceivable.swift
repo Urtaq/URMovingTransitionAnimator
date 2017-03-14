@@ -8,7 +8,7 @@
 
 import Foundation
 
-@objc public protocol URTransitionReceivable {
+public protocol URTransitionReceivable: class {
     var transitionView: UIView? { get set }
 
     func transitionFinishingFrame(startingFrame: CGRect) -> CGRect
