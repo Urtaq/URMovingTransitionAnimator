@@ -193,7 +193,7 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
 
     fileprivate var _scaleAnimation: CABasicAnimation!
     var scaleAnimation: CABasicAnimation! {
-        guard let movedView = self.movingView else { return nil }
+        guard let _ = self.movingView else { return nil }
 
         self.makeScaleAnimation(target: _movingLayer)
 
