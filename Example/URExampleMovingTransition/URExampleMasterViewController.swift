@@ -9,7 +9,7 @@
 import UIKit
 import URMovingTransitionAnimator
 
-class ViewController: URMovingTransitionViewController, UITableViewDelegate, UITableViewDataSource {
+class URExampleMasterViewController: URMovingTransitionViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet var tableView: UITableView!
 
@@ -50,11 +50,12 @@ class ViewController: URMovingTransitionViewController, UITableViewDelegate, UIT
         tableView.deselectRow(at: indexPath, animated: false)
 
         if let navigationDelegate = self.navigationController?.delegate as? URMovingTransitionViewController, let cell = tableView.cellForRow(at: indexPath) as? URExampleTableViewCell {
-            var view: UIView = cell.contentView
+            var view: UIView = cell.imgView
             var originRect: CGRect = cell.contentView.convert(cell.contentView.frame, to: tableView.superview)
 
             view = UIImageView(image: cell.imgView.image)
-            view.contentMode = .scaleAspectFit
+            view.backgroundColor = #colorLiteral(red: 1, green: 0.6998770833, blue: 0.0003534180869, alpha: 1)
+            view.contentMode = cell.imgView.contentMode
             view.frame = cell.imgView.frame
 
             originRect = cell.imgView.convert(view.frame, to: tableView.superview)

@@ -1,0 +1,393 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		975FD85F1E778D2600F409CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975FD85E1E778D2600F409CB /* AppDelegate.swift */; };
+		975FD8611E778D2600F409CB /* URExampleMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975FD8601E778D2600F409CB /* URExampleMasterViewController.swift */; };
+		975FD8641E778D2600F409CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 975FD8621E778D2600F409CB /* Main.storyboard */; };
+		975FD8661E778D2600F409CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 975FD8651E778D2600F409CB /* Assets.xcassets */; };
+		975FD8691E778D2600F409CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 975FD8671E778D2600F409CB /* LaunchScreen.storyboard */; };
+		975FD8751E779D7200F409CB /* URExampleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975FD8741E779D7200F409CB /* URExampleTableViewCell.swift */; };
+		975FD8771E77A26300F409CB /* URExampleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975FD8761E77A26300F409CB /* URExampleDetailViewController.swift */; };
+		DBB91FDC3827D35D78AE0F72 /* Pods_URExampleMovingTransition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 878E02F5933CA948105312B8 /* Pods_URExampleMovingTransition.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5943B670FD700158EC0F7FD2 /* Pods-URExampleMovingTransition.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-URExampleMovingTransition.debug.xcconfig"; path = "Pods/Target Support Files/Pods-URExampleMovingTransition/Pods-URExampleMovingTransition.debug.xcconfig"; sourceTree = "<group>"; };
+		878E02F5933CA948105312B8 /* Pods_URExampleMovingTransition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_URExampleMovingTransition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		975FD85B1E778D2600F409CB /* URExampleMovingTransition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = URExampleMovingTransition.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		975FD85E1E778D2600F409CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		975FD8601E778D2600F409CB /* URExampleMasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URExampleMasterViewController.swift; sourceTree = "<group>"; };
+		975FD8631E778D2600F409CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		975FD8651E778D2600F409CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		975FD8681E778D2600F409CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		975FD86A1E778D2600F409CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		975FD8741E779D7200F409CB /* URExampleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URExampleTableViewCell.swift; sourceTree = "<group>"; };
+		975FD8761E77A26300F409CB /* URExampleDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URExampleDetailViewController.swift; sourceTree = "<group>"; };
+		D2C086F913B554ABBBB13204 /* Pods-URExampleMovingTransition.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-URExampleMovingTransition.release.xcconfig"; path = "Pods/Target Support Files/Pods-URExampleMovingTransition/Pods-URExampleMovingTransition.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		975FD8581E778D2600F409CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBB91FDC3827D35D78AE0F72 /* Pods_URExampleMovingTransition.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		975FD8521E778D2600F409CB = {
+			isa = PBXGroup;
+			children = (
+				975FD85D1E778D2600F409CB /* URExampleMovingTransition */,
+				975FD85C1E778D2600F409CB /* Products */,
+				FC8FE5D427C9094F183F7BAC /* Pods */,
+				DB3EA5568DE489C712EA1E25 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		975FD85C1E778D2600F409CB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				975FD85B1E778D2600F409CB /* URExampleMovingTransition.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		975FD85D1E778D2600F409CB /* URExampleMovingTransition */ = {
+			isa = PBXGroup;
+			children = (
+				975FD85E1E778D2600F409CB /* AppDelegate.swift */,
+				975FD8601E778D2600F409CB /* URExampleMasterViewController.swift */,
+				975FD8741E779D7200F409CB /* URExampleTableViewCell.swift */,
+				975FD8761E77A26300F409CB /* URExampleDetailViewController.swift */,
+				975FD8621E778D2600F409CB /* Main.storyboard */,
+				975FD8651E778D2600F409CB /* Assets.xcassets */,
+				975FD8671E778D2600F409CB /* LaunchScreen.storyboard */,
+				975FD86A1E778D2600F409CB /* Info.plist */,
+			);
+			path = URExampleMovingTransition;
+			sourceTree = "<group>";
+		};
+		DB3EA5568DE489C712EA1E25 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				878E02F5933CA948105312B8 /* Pods_URExampleMovingTransition.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FC8FE5D427C9094F183F7BAC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5943B670FD700158EC0F7FD2 /* Pods-URExampleMovingTransition.debug.xcconfig */,
+				D2C086F913B554ABBBB13204 /* Pods-URExampleMovingTransition.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		975FD85A1E778D2600F409CB /* URExampleMovingTransition */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 975FD86D1E778D2600F409CB /* Build configuration list for PBXNativeTarget "URExampleMovingTransition" */;
+			buildPhases = (
+				B3CE28675669C2449D333E9D /* [CP] Check Pods Manifest.lock */,
+				975FD8571E778D2600F409CB /* Sources */,
+				975FD8581E778D2600F409CB /* Frameworks */,
+				975FD8591E778D2600F409CB /* Resources */,
+				C9E671DF4A88266755442484 /* [CP] Embed Pods Frameworks */,
+				BF2E6F6CE61474C522A95446 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = URExampleMovingTransition;
+			productName = URExampleMovingTransition;
+			productReference = 975FD85B1E778D2600F409CB /* URExampleMovingTransition.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		975FD8531E778D2600F409CB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = zigbang;
+				TargetAttributes = {
+					975FD85A1E778D2600F409CB = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 7AX2JZT3L8;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 975FD8561E778D2600F409CB /* Build configuration list for PBXProject "URExampleMovingTransition" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 975FD8521E778D2600F409CB;
+			productRefGroup = 975FD85C1E778D2600F409CB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				975FD85A1E778D2600F409CB /* URExampleMovingTransition */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		975FD8591E778D2600F409CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				975FD8691E778D2600F409CB /* LaunchScreen.storyboard in Resources */,
+				975FD8661E778D2600F409CB /* Assets.xcassets in Resources */,
+				975FD8641E778D2600F409CB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B3CE28675669C2449D333E9D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BF2E6F6CE61474C522A95446 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-URExampleMovingTransition/Pods-URExampleMovingTransition-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C9E671DF4A88266755442484 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-URExampleMovingTransition/Pods-URExampleMovingTransition-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		975FD8571E778D2600F409CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				975FD8751E779D7200F409CB /* URExampleTableViewCell.swift in Sources */,
+				975FD8611E778D2600F409CB /* URExampleMasterViewController.swift in Sources */,
+				975FD85F1E778D2600F409CB /* AppDelegate.swift in Sources */,
+				975FD8771E77A26300F409CB /* URExampleDetailViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		975FD8621E778D2600F409CB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				975FD8631E778D2600F409CB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		975FD8671E778D2600F409CB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				975FD8681E778D2600F409CB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		975FD86B1E778D2600F409CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		975FD86C1E778D2600F409CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		975FD86E1E778D2600F409CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5943B670FD700158EC0F7FD2 /* Pods-URExampleMovingTransition.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7AX2JZT3L8;
+				INFOPLIST_FILE = URExampleMovingTransition/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zigbang.URExampleMovingTransition;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		975FD86F1E778D2600F409CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2C086F913B554ABBBB13204 /* Pods-URExampleMovingTransition.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7AX2JZT3L8;
+				INFOPLIST_FILE = URExampleMovingTransition/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zigbang.URExampleMovingTransition;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		975FD8561E778D2600F409CB /* Build configuration list for PBXProject "URExampleMovingTransition" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				975FD86B1E778D2600F409CB /* Debug */,
+				975FD86C1E778D2600F409CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		975FD86D1E778D2600F409CB /* Build configuration list for PBXNativeTarget "URExampleMovingTransition" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				975FD86E1E778D2600F409CB /* Debug */,
+				975FD86F1E778D2600F409CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 975FD8531E778D2600F409CB /* Project object */;
+}
