@@ -61,6 +61,7 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
 
     var isConsiderableNavigationHeight: Bool = true
     var transitionDirection: UINavigationControllerOperation = .none
+    var transitionDuration: TimeInterval = 0.25
     var transitionFinishDuration: TimeInterval = 0.8
     var scale: CGFloat = 1.0
 
@@ -70,28 +71,66 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
 
     var transitionContext: UIViewControllerContextTransitioning!
 
-    public init(view: UIView, startingFrame: CGRect = CGRect.zero, isLazyCompletion: Bool = false) {
+    public init(target view: UIView, basedOn viewForStartingFrameCaculation: UIView?, isLazyCompletion: Bool = false, duration: TimeInterval = 0.25, finishingDuration: TimeInterval = 0.8) {
+        super.init()
+
+        self.movingView = self.copyView(view: view)
+
+        let startingOrigin = view.convert(view.frame, to: viewForStartingFrameCaculation)
+        self.startingPoint = startingOrigin.origin
+        self.startingSize = view.bounds.size
+
+        self.transitionDuration = duration
+        self.transitionFinishDuration = finishingDuration
+        self.isLazyCompletion = isLazyCompletion
+    }
+
+    /// make copied view to remove the reference of original view, because of the side effects related on the original view
+    func copyView(view: UIView) -> UIView {
+        if view is UIImageView {
+            return self.copyView(imageView: view as! UIImageView)
+        }
+
+        var view = view.snapshotView(afterScreenUpdates: false)!
+
+        return view
+    }
+
+    func copyView(imageView: UIImageView) -> UIImageView {
+        var view = UIImageView(image: imageView.image)
+        view.backgroundColor = imageView.backgroundColor
+        view.contentMode = imageView.contentMode
+        view.frame = imageView.frame
+        
+        return view
+    }
+
+    public init(view: UIView, startingFrame: CGRect = CGRect.zero, isLazyCompletion: Bool = false, duration: TimeInterval = 0.25, finishingDuration: TimeInterval = 0.8) {
         super.init()
 
         self.movingView = view
         self.startingPoint = startingFrame.origin
         self.startingSize = startingFrame.size
 
+        self.transitionDuration = duration
+        self.transitionFinishDuration = finishingDuration
         self.isLazyCompletion = isLazyCompletion
     }
 
-    public init(view: UIView, startingOrigin: CGPoint = CGPoint.zero, isLazyCompletion: Bool = false) {
+    public init(view: UIView, startingOrigin: CGPoint = CGPoint.zero, isLazyCompletion: Bool = false, duration: TimeInterval = 0.25, finishingDuration: TimeInterval = 0.8) {
         super.init()
 
         self.movingView = view
         self.startingPoint = startingOrigin
         self.startingSize = view.bounds.size
 
+        self.transitionDuration = duration
+        self.transitionFinishDuration = finishingDuration
         self.isLazyCompletion = isLazyCompletion
     }
 
     public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.25
+        return self.transitionDuration
     }
 
     public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {

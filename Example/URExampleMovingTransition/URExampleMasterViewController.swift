@@ -50,17 +50,17 @@ class URExampleMasterViewController: URMovingTransitionViewController, UITableVi
         tableView.deselectRow(at: indexPath, animated: false)
 
         if let navigationDelegate = self.navigationController?.delegate as? URMovingTransitionViewController, let cell = tableView.cellForRow(at: indexPath) as? URExampleTableViewCell {
-            var view: UIView = cell.imgView
-            var originRect: CGRect = cell.contentView.convert(cell.contentView.frame, to: tableView.superview)
+//            var view: UIView = cell.imgView
+//            view = UIImageView(image: cell.imgView.image)
+//            view.backgroundColor = cell.imgView.backgroundColor
+//            view.contentMode = cell.imgView.contentMode
+//            view.frame = cell.imgView.frame
 
-            view = UIImageView(image: cell.imgView.image)
-            view.backgroundColor = #colorLiteral(red: 1, green: 0.6998770833, blue: 0.0003534180869, alpha: 1)
-            view.contentMode = cell.imgView.contentMode
-            view.frame = cell.imgView.frame
+//            var originRect = cell.imgView.convert(cell.imgView.frame, to: tableView.superview)
 
-            originRect = cell.imgView.convert(view.frame, to: tableView.superview)
+//            navigationDelegate.animator = URMoveBlurredTransitioningAnimator(view: view, startingOrigin: originRect.origin)
 
-            navigationDelegate.animator = URMoveBlurredTransitioningAnimator(view: view, startingOrigin: originRect.origin)
+            navigationDelegate.animator = URMoveBlurredTransitioningAnimator(target: cell.imgView, basedOn: tableView.superview, duration: 0.8)
         }
 
         self.performSegue(withIdentifier: "showDetail", sender: tableView.cellForRow(at: indexPath))
