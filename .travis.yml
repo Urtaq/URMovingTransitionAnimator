@@ -6,8 +6,9 @@ env:
   matrix:
    - PLATFORM="iOS"
 before_install:
-    - rvm use system
-    - sudo gem install cocoapods
+  - rvm use system
+  - gem install cocoapods --pre --no-rdoc --no-ri --no-document --quiet
+  - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
 podfile: Example/Podfile
 script:
   - xcodebuild -scheme URExampleMovingTransition -workspace URExampleMovingTransition.xcworkspace -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 7' build test
