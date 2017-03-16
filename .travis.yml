@@ -1,4 +1,4 @@
-language: objective-c
+language: swift
 rvm:
  - 2.2
 osx_image: xcode8.2
@@ -9,5 +9,6 @@ env:
    - PLATFORM="iOS"
 before_install:
 script:
+  - xcodebuild -scheme URExampleMovingTransition -workspace URExampleMovingTransition.xcworkspace -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 7' build test
 after_success:
-
+  - bash <(curl -s https://codecov.io/bash) -cF ios
