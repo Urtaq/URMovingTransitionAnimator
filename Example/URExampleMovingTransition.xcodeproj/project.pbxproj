@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		973095D51E7A9C8500B58892 /* URExampleMovingTransitionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973095D41E7A9C8500B58892 /* URExampleMovingTransitionUITests.swift */; };
+		973095E31E7A9C8E00B58892 /* URExampleMovingTransitionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973095E21E7A9C8E00B58892 /* URExampleMovingTransitionTests.swift */; };
 		975FD85F1E778D2600F409CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975FD85E1E778D2600F409CB /* AppDelegate.swift */; };
 		975FD8611E778D2600F409CB /* URExampleMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975FD8601E778D2600F409CB /* URExampleMasterViewController.swift */; };
 		975FD8641E778D2600F409CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 975FD8621E778D2600F409CB /* Main.storyboard */; };
@@ -17,9 +19,32 @@
 		DBB91FDC3827D35D78AE0F72 /* Pods_URExampleMovingTransition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 878E02F5933CA948105312B8 /* Pods_URExampleMovingTransition.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		973095D71E7A9C8500B58892 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 975FD8531E778D2600F409CB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 975FD85A1E778D2600F409CB;
+			remoteInfo = URExampleMovingTransition;
+		};
+		973095E51E7A9C8E00B58892 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 975FD8531E778D2600F409CB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 975FD85A1E778D2600F409CB;
+			remoteInfo = URExampleMovingTransition;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		5943B670FD700158EC0F7FD2 /* Pods-URExampleMovingTransition.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-URExampleMovingTransition.debug.xcconfig"; path = "Pods/Target Support Files/Pods-URExampleMovingTransition/Pods-URExampleMovingTransition.debug.xcconfig"; sourceTree = "<group>"; };
 		878E02F5933CA948105312B8 /* Pods_URExampleMovingTransition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_URExampleMovingTransition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		973095D21E7A9C8400B58892 /* URExampleMovingTransitionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = URExampleMovingTransitionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		973095D41E7A9C8500B58892 /* URExampleMovingTransitionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URExampleMovingTransitionUITests.swift; sourceTree = "<group>"; };
+		973095D61E7A9C8500B58892 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		973095E01E7A9C8E00B58892 /* URExampleMovingTransitionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = URExampleMovingTransitionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		973095E21E7A9C8E00B58892 /* URExampleMovingTransitionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URExampleMovingTransitionTests.swift; sourceTree = "<group>"; };
+		973095E41E7A9C8E00B58892 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		975FD85B1E778D2600F409CB /* URExampleMovingTransition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = URExampleMovingTransition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		975FD85E1E778D2600F409CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		975FD8601E778D2600F409CB /* URExampleMasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URExampleMasterViewController.swift; sourceTree = "<group>"; };
@@ -33,6 +58,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		973095CF1E7A9C8400B58892 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		973095DD1E7A9C8E00B58892 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		975FD8581E778D2600F409CB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -44,10 +83,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		973095D31E7A9C8500B58892 /* URExampleMovingTransitionUITests */ = {
+			isa = PBXGroup;
+			children = (
+				973095D41E7A9C8500B58892 /* URExampleMovingTransitionUITests.swift */,
+				973095D61E7A9C8500B58892 /* Info.plist */,
+			);
+			path = URExampleMovingTransitionUITests;
+			sourceTree = "<group>";
+		};
+		973095E11E7A9C8E00B58892 /* URExampleMovingTransitionTests */ = {
+			isa = PBXGroup;
+			children = (
+				973095E21E7A9C8E00B58892 /* URExampleMovingTransitionTests.swift */,
+				973095E41E7A9C8E00B58892 /* Info.plist */,
+			);
+			path = URExampleMovingTransitionTests;
+			sourceTree = "<group>";
+		};
 		975FD8521E778D2600F409CB = {
 			isa = PBXGroup;
 			children = (
 				975FD85D1E778D2600F409CB /* URExampleMovingTransition */,
+				973095D31E7A9C8500B58892 /* URExampleMovingTransitionUITests */,
+				973095E11E7A9C8E00B58892 /* URExampleMovingTransitionTests */,
 				975FD85C1E778D2600F409CB /* Products */,
 				FC8FE5D427C9094F183F7BAC /* Pods */,
 				DB3EA5568DE489C712EA1E25 /* Frameworks */,
@@ -58,6 +117,8 @@
 			isa = PBXGroup;
 			children = (
 				975FD85B1E778D2600F409CB /* URExampleMovingTransition.app */,
+				973095D21E7A9C8400B58892 /* URExampleMovingTransitionUITests.xctest */,
+				973095E01E7A9C8E00B58892 /* URExampleMovingTransitionTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -97,6 +158,42 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		973095D11E7A9C8400B58892 /* URExampleMovingTransitionUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 973095DB1E7A9C8500B58892 /* Build configuration list for PBXNativeTarget "URExampleMovingTransitionUITests" */;
+			buildPhases = (
+				973095CE1E7A9C8400B58892 /* Sources */,
+				973095CF1E7A9C8400B58892 /* Frameworks */,
+				973095D01E7A9C8400B58892 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				973095D81E7A9C8500B58892 /* PBXTargetDependency */,
+			);
+			name = URExampleMovingTransitionUITests;
+			productName = URExampleMovingTransitionUITests;
+			productReference = 973095D21E7A9C8400B58892 /* URExampleMovingTransitionUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		973095DF1E7A9C8E00B58892 /* URExampleMovingTransitionTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 973095E71E7A9C8E00B58892 /* Build configuration list for PBXNativeTarget "URExampleMovingTransitionTests" */;
+			buildPhases = (
+				973095DC1E7A9C8E00B58892 /* Sources */,
+				973095DD1E7A9C8E00B58892 /* Frameworks */,
+				973095DE1E7A9C8E00B58892 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				973095E61E7A9C8E00B58892 /* PBXTargetDependency */,
+			);
+			name = URExampleMovingTransitionTests;
+			productName = URExampleMovingTransitionTests;
+			productReference = 973095E01E7A9C8E00B58892 /* URExampleMovingTransitionTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		975FD85A1E778D2600F409CB /* URExampleMovingTransition */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 975FD86D1E778D2600F409CB /* Build configuration list for PBXNativeTarget "URExampleMovingTransition" */;
@@ -127,6 +224,18 @@
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = zigbang;
 				TargetAttributes = {
+					973095D11E7A9C8400B58892 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 7AX2JZT3L8;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 975FD85A1E778D2600F409CB;
+					};
+					973095DF1E7A9C8E00B58892 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 7AX2JZT3L8;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 975FD85A1E778D2600F409CB;
+					};
 					975FD85A1E778D2600F409CB = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 7AX2JZT3L8;
@@ -148,11 +257,27 @@
 			projectRoot = "";
 			targets = (
 				975FD85A1E778D2600F409CB /* URExampleMovingTransition */,
+				973095D11E7A9C8400B58892 /* URExampleMovingTransitionUITests */,
+				973095DF1E7A9C8E00B58892 /* URExampleMovingTransitionTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		973095D01E7A9C8400B58892 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		973095DE1E7A9C8E00B58892 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		975FD8591E778D2600F409CB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -214,6 +339,22 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		973095CE1E7A9C8400B58892 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				973095D51E7A9C8500B58892 /* URExampleMovingTransitionUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		973095DC1E7A9C8E00B58892 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				973095E31E7A9C8E00B58892 /* URExampleMovingTransitionTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		975FD8571E778D2600F409CB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -226,6 +367,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		973095D81E7A9C8500B58892 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 975FD85A1E778D2600F409CB /* URExampleMovingTransition */;
+			targetProxy = 973095D71E7A9C8500B58892 /* PBXContainerItemProxy */;
+		};
+		973095E61E7A9C8E00B58892 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 975FD85A1E778D2600F409CB /* URExampleMovingTransition */;
+			targetProxy = 973095E51E7A9C8E00B58892 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		975FD8621E778D2600F409CB /* Main.storyboard */ = {
@@ -247,6 +401,60 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		973095D91E7A9C8500B58892 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 7AX2JZT3L8;
+				INFOPLIST_FILE = URExampleMovingTransitionUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zigbang.URExampleMovingTransitionUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = URExampleMovingTransition;
+			};
+			name = Debug;
+		};
+		973095DA1E7A9C8500B58892 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 7AX2JZT3L8;
+				INFOPLIST_FILE = URExampleMovingTransitionUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zigbang.URExampleMovingTransitionUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = URExampleMovingTransition;
+			};
+			name = Release;
+		};
+		973095E81E7A9C8E00B58892 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 7AX2JZT3L8;
+				INFOPLIST_FILE = URExampleMovingTransitionTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zigbang.URExampleMovingTransitionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/URExampleMovingTransition.app/URExampleMovingTransition";
+			};
+			name = Debug;
+		};
+		973095E91E7A9C8E00B58892 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 7AX2JZT3L8;
+				INFOPLIST_FILE = URExampleMovingTransitionTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zigbang.URExampleMovingTransitionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/URExampleMovingTransition.app/URExampleMovingTransition";
+			};
+			name = Release;
+		};
 		975FD86B1E778D2600F409CB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -369,6 +577,22 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		973095DB1E7A9C8500B58892 /* Build configuration list for PBXNativeTarget "URExampleMovingTransitionUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				973095D91E7A9C8500B58892 /* Debug */,
+				973095DA1E7A9C8500B58892 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		973095E71E7A9C8E00B58892 /* Build configuration list for PBXNativeTarget "URExampleMovingTransitionTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				973095E81E7A9C8E00B58892 /* Debug */,
+				973095E91E7A9C8E00B58892 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		975FD8561E778D2600F409CB /* Build configuration list for PBXProject "URExampleMovingTransition" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
