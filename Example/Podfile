@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '8.1'
+# platform :ios, '9.0'
 
 target 'URExampleMovingTransition' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
@@ -7,6 +7,15 @@ target 'URExampleMovingTransition' do
 
   # Pods for URExampleMovingTransition
   pod 'URMovingTransitionAnimator'
-  pod 'Reveal-SDK', :configurations => ['Debug']
+
+  target 'URExampleMovingTransitionTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'URExampleMovingTransitionUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
 
 end
