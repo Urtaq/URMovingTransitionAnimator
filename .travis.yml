@@ -8,6 +8,7 @@ env:
   matrix:
    - PLATFORM="iOS"
 before_install:
+podfile: Example/Podfile
 script:
   - xcodebuild -scheme URExampleMovingTransition -workspace URExampleMovingTransition.xcworkspace -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 7' build test
 after_success:
