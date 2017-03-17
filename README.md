@@ -79,7 +79,7 @@ class viewController: UIViewController, URMovingTransitionMakable {
 }
 ```
 
-#### 2. Set the destination frame in the transition finighing view controller
+#### 2. Set the destination frame in the transition finishing view controller
 
 ```swift
 class finishViewController: UIViewController, URMovingTransitionReceivable {
