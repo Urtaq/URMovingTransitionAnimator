@@ -14,10 +14,17 @@ You can handle some parameter to customize this transition. e.g. scale, duration
 * Swift 3.0+
 
 ## Installation
+
 ### Cocoapods
+
 Add the following to your `Podfile`.
 
     pod "URMovingTransitionAnimator"
+
+## Examples
+
+See the `Example` folder.  
+Run `pod install` and open the .xcworkspace file.
 
 ## Usage
 
