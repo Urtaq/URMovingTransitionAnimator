@@ -9,7 +9,12 @@
 import UIKit
 import URMovingTransitionAnimator
 
-class URExampleMasterViewController: URMovingTransitionViewController, UITableViewDelegate, UITableViewDataSource {
+class URExampleMasterViewController: UIViewController, URMovingTransitionMakable, UITableViewDelegate, UITableViewDataSource {
+    var panGesture: UIScreenEdgePanGestureRecognizer!
+
+    var animator: UIViewControllerAnimatedTransitioning?
+    var interactionController: UIPercentDrivenInteractiveTransition!
+    var movingTransitionDelegate: URMovingTransitionAnimatorDelegate!
 
     @IBOutlet var tableView: UITableView!
 
@@ -20,7 +25,19 @@ class URExampleMasterViewController: URMovingTransitionViewController, UITableVi
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
+        self.initMovingTrasitionGesture()
+
         self.tableView.rowHeight = UITableViewAutomaticDimension
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.initMovingTransitionNavigationDelegate()
+    }
+
+    deinit {
+        self.removeMovingTransitionGesture()
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,7 +66,7 @@ class URExampleMasterViewController: URMovingTransitionViewController, UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
 
-        if let navigationDelegate = self.navigationController?.delegate as? URMovingTransitionViewController, let cell = tableView.cellForRow(at: indexPath) as? URExampleTableViewCell {
+        if let cell = tableView.cellForRow(at: indexPath) as? URExampleTableViewCell {
 //            var view: UIView = cell.imgView
 //            view = UIImageView(image: cell.imgView.image)
 //            view.backgroundColor = cell.imgView.backgroundColor
@@ -60,7 +77,7 @@ class URExampleMasterViewController: URMovingTransitionViewController, UITableVi
 
 //            navigationDelegate.animator = URMoveBlurredTransitioningAnimator(view: view, startingOrigin: originRect.origin)
 
-            navigationDelegate.animator = URMoveBlurredTransitioningAnimator(target: cell.imgView, basedOn: tableView.superview, duration: 0.8)
+            self.makeTransitionAnimator(target: cell.imgView, baseOn: tableView.superview!, duration: 0.8)
         }
 
         self.performSegue(withIdentifier: "showDetail", sender: tableView.cellForRow(at: indexPath))

@@ -14,7 +14,7 @@ public class URMoveBlurredTransitioningAnimator: URMoveTransitioningAnimator {
     var blurView: UIVisualEffectView?
 
     override func makeMovingKeyframe(_ movingView: UIView?, _ finishingFrame: CGRect, withRelativeStartTime: Double, relativeDuration: Double) {
-        print("override " + #function)
+
         super.makeMovingKeyframe(movingView, finishingFrame, withRelativeStartTime: withRelativeStartTime, relativeDuration: relativeDuration)
 
         UIView.addKeyframe(withRelativeStartTime: withRelativeStartTime, relativeDuration: relativeDuration) {
@@ -32,7 +32,6 @@ public class URMoveBlurredTransitioningAnimator: URMoveTransitioningAnimator {
         self.blurView = UIVisualEffectView()
 
         self.transitionCompletion = { (transitionContext) in
-            print("transitionCompletion called!!")
 
             self.blurView?.effect = nil
             self.fromViewSnapShot?.alpha = 0.0
@@ -56,7 +55,7 @@ public class URMoveBlurredTransitioningAnimator: URMoveTransitioningAnimator {
     }
 
     override func initAnimationDescriptor(using transitionContext: UIViewControllerContextTransitioning) -> CGRect {
-        print("override " + #function)
+
         let finishingFrame = super.initAnimationDescriptor(using: transitionContext)
 
         self.initBlurredView()
