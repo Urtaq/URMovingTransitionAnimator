@@ -28,7 +28,7 @@ public class URMoveBlurredTransitioningAnimator: URMoveTransitioningAnimator {
     }
 
     func initBlurredView() {
-        print(#function)
+
         self.blurView = UIVisualEffectView()
 
         self.transitionCompletion = { (transitionContext) in
