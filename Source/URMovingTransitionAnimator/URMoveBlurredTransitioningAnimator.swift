@@ -6,7 +6,7 @@
 //  Copyright © 2017년 chbreeze. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 public class URMoveBlurredTransitioningAnimator: URMoveTransitioningAnimator {
 
@@ -42,7 +42,9 @@ public class URMoveBlurredTransitioningAnimator: URMoveTransitioningAnimator {
             }
 
             UIView.animate(withDuration: self.transitionFinishDuration, animations: {
-                self.movingView?.alpha = 0.8
+                if !transitionContext.transitionWasCancelled {
+                    self.movingView?.alpha = 0.8
+                }
             }, completion: { (finish) in
                 self.movingView?.removeFromSuperview()
                 self.blurView?.removeFromSuperview()

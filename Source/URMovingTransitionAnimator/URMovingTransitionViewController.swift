@@ -62,10 +62,7 @@ open class URMovingTransitionViewController: UIViewController, UINavigationContr
             let d: CGFloat = fabs(translation.x / view.bounds.width)
 
             self.interactionController.update(d)
-        } else if gesture.state == .cancelled {
-            self.interactionController.cancel()
-            print("######### cancel")
-        } else if gesture.state == .ended || gesture.state == .cancelled || gesture.state == .failed {
+        } else if gesture.state == .ended {
             let translation = gesture.translation(in: view)
             let d: CGFloat = fabs(translation.x / view.bounds.width)
 
@@ -73,7 +70,11 @@ open class URMovingTransitionViewController: UIViewController, UINavigationContr
                 self.interactionController.finish()
                 print("######### finish")
             } else {
-                self.interactionController.cancel()
+                self.interactionController.cancel(with: {
+                    if let customAnimator = self.animator as? URMoveTransitioningAnimator {
+                        customAnimator.movingView?.alpha = 0.0
+                    }
+                })
                 print("######### cancel")
             }
             self.interactionController = nil
