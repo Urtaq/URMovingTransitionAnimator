@@ -31,7 +31,7 @@ public class URMovingTransitionAnimatorDelegate: NSObject, UINavigationControlle
 
         if gesture.state == .began {
             self.movingTransitionViewController.interactionController = UIPercentDrivenInteractiveTransition()
-            if let viewControllers = self.movingTransitionViewController.navigationController?.viewControllers, viewControllers.count > 1 && self.movingTransitionViewController.navigationController?.topViewController is URTransitionReceivable {
+            if let viewControllers = self.movingTransitionViewController.navigationController?.viewControllers, viewControllers.count > 1 && self.movingTransitionViewController.navigationController?.topViewController is URMovingTransitionReceivable {
                 _ = self.movingTransitionViewController.navigationController?.popViewController(animated: true)
             }
         } else if gesture.state == .changed {
@@ -83,7 +83,7 @@ public class URMovingTransitionAnimatorDelegate: NSObject, UINavigationControlle
 
     // MARK: UIGestureRecognizerDelegate
     public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        if gestureRecognizer === self.movingTransitionViewController.panGesture && self.movingTransitionViewController.navigationController?.topViewController is URTransitionReceivable {
+        if gestureRecognizer === self.movingTransitionViewController.panGesture && self.movingTransitionViewController.navigationController?.topViewController is URMovingTransitionReceivable {
             return true
         }
         

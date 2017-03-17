@@ -1,5 +1,5 @@
 //
-//  URTransitionReceivable.swift
+//  URMovingTransitionReceivable.swift
 //  URMovingTransitionAnimator
 //
 //  Created by jegumhon on 2017. 2. 14..
@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol URTransitionReceivable: class {
+public protocol URMovingTransitionReceivable: class {
     var transitionView: UIView? { get set }
 
     func transitionFinishingFrame(startingFrame: CGRect) -> CGRect
@@ -16,7 +16,7 @@ public protocol URTransitionReceivable: class {
     func removeTransitionView(duration: Double)
 }
 
-public extension URTransitionReceivable where Self: UIViewController {
+public extension URMovingTransitionReceivable where Self: UIViewController {
     func makeTransitionView(originView: UIView) {
         self.view.addSubview(originView)
 

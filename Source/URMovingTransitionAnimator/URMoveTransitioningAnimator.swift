@@ -104,7 +104,7 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
         view.backgroundColor = imageView.backgroundColor
         view.contentMode = imageView.contentMode
         view.frame = imageView.frame
-        
+
         return view
     }
 
@@ -164,8 +164,8 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
                 movedView.frame = movingViewFrame
             }
 
-            if toViewController is URTransitionReceivable {
-                self.finishingFrame = (toViewController as! URTransitionReceivable).transitionFinishingFrame(startingFrame: movingViewFrame)
+            if toViewController is URMovingTransitionReceivable {
+                self.finishingFrame = (toViewController as! URMovingTransitionReceivable).transitionFinishingFrame(startingFrame: movingViewFrame)
             } else {
                 self.finishingFrame = movingViewFrame
             }
@@ -182,8 +182,8 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
                 transitionContext.containerView.addSubview(movedView)
                 movedView.alpha = 1.0
 
-                if toViewController is URTransitionReceivable {
-                    self.finishingFrame = (toViewController as! URTransitionReceivable).transitionFinishingFrame(startingFrame: movingViewFrame)
+                if toViewController is URMovingTransitionReceivable {
+                    self.finishingFrame = (toViewController as! URMovingTransitionReceivable).transitionFinishingFrame(startingFrame: movingViewFrame)
                 } else {
                     self.finishingFrame = movedView.frame
                     self.finishingFrame.origin = self.startingPoint
@@ -199,8 +199,8 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
                 return
             }
 
-            if let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to), toViewController is URTransitionReceivable && !self.isLazyCompletion {
-                (toViewController as! URTransitionReceivable).removeTransitionView(duration: self.transitionFinishDuration)
+            if let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to), toViewController is URMovingTransitionReceivable && !self.isLazyCompletion {
+                (toViewController as! URMovingTransitionReceivable).removeTransitionView(duration: self.transitionFinishDuration)
             }
 
             UIView.animate(withDuration: self.transitionFinishDuration, animations: {
@@ -273,7 +273,7 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
         if cancelled {
 
         }
-        
+
         if let _ = self.movingView {
             let animationGroup = CAAnimationGroup()
             animationGroup.animations = [self.moveAnimation, self.scaleAnimation]
@@ -345,10 +345,10 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
             // prepare transition result view for the showing view controller
             self.completeLayerAnimation(cancelled: transitionContext.transitionWasCancelled)
 
-            if let movedView = self.movingView, toViewController is URTransitionReceivable {
+            if let movedView = self.movingView, toViewController is URMovingTransitionReceivable {
                 let snapShotView = movedView.snapshotView(afterScreenUpdates: false)!
                 snapShotView.frame = movedView.frame
-                (toViewController as! URTransitionReceivable).makeTransitionView(originView: snapShotView)
+                (toViewController as! URMovingTransitionReceivable).makeTransitionView(originView: snapShotView)
             }
 
             guard let block = self.transitionCompletion else {
@@ -357,7 +357,7 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
             }
             block(transitionContext)
         }
-
+        
         self.makeLayerAnimation()
         
         UIView.animateKeyframes(withDuration: self.transitionDuration(using: transitionContext), delay: 0.0, options: UIViewKeyframeAnimationOptions.calculationModeLinear, animations: basicAnimationBlock) { (finish) in

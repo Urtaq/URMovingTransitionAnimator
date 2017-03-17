@@ -9,7 +9,7 @@
 import UIKit
 import URMovingTransitionAnimator
 
-class URExampleDetailViewController: UIViewController, URTransitionReceivable {
+class URExampleDetailViewController: UIViewController, URMovingTransitionReceivable {
     @IBOutlet var imgView: UIImageView!
     @IBOutlet var lbText: UILabel!
 
