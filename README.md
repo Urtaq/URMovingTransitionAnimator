@@ -68,6 +68,9 @@ class viewController: UIViewController, URMovingTransitionMakable {
 
         if let cell = tableView.cellForRow(at: indexPath) as? URExampleTableViewCell {
             self.makeTransitionAnimator(target: cell.imgView, baseOn: tableView.superview!, duration: 0.8)
+            
+            // if you want to add scaling animation, use makeTransitionAnimator function like below
+            // self.makeTransitionAnimator(target: cell.imgView, baseOn: tableView.superview!, duration: 0.8, needScaleEffect: true, scale: 1.05)
         }
         
         ...
