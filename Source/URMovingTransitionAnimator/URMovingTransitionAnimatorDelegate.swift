@@ -76,7 +76,7 @@ public class URMovingTransitionAnimatorDelegate: NSObject, UINavigationControlle
     }
 
     public func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        if !(viewController is URMovingTransitionMakable) && !self.movingTransitionViewController.isPopableViewController() {
+        if !(viewController is URMovingTransitionMakable) && !self.movingTransitionViewController.isPopableViewController {
             navigationController.delegate = nil
         }
     }

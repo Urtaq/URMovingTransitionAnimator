@@ -16,8 +16,8 @@ public protocol URMovingTransitionMakable: class {
 
     var movingTransitionDelegate: URMovingTransitionAnimatorDelegate! { get set }
     var navigationController: UINavigationController? { get }
+    var isPopableViewController: Bool { get }
 
-    func isPopableViewController() -> Bool
     func makeTransitionAnimator(target: UIView, baseOn: UIView, duration: Double)
 }
 
@@ -27,7 +27,7 @@ extension URMovingTransitionMakable where Self: UIViewController {
         return self.navigationController
     }
 
-    public func isPopableViewController() -> Bool {
+    public var isPopableViewController: Bool {
         guard let navigationController = self.navigationController else { return false }
 
         let navigationStackCount = navigationController.viewControllers.count

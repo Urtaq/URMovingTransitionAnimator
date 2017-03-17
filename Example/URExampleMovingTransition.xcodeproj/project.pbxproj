@@ -700,6 +700,7 @@
 				973095DA1E7A9C8500B58892 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		973095E71E7A9C8E00B58892 /* Build configuration list for PBXNativeTarget "URExampleMovingTransitionTests" */ = {
 			isa = XCConfigurationList;
@@ -708,6 +709,7 @@
 				973095E91E7A9C8E00B58892 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		975FD8561E778D2600F409CB /* Build configuration list for PBXProject "URExampleMovingTransition" */ = {
 			isa = XCConfigurationList;
