@@ -8,6 +8,11 @@ You can handle some parameter to customize this transition. e.g. scale, duration
 
 ![sample1](https://github.com/jegumhon/URMovingTransitionAnimator/blob/master/Resources/URMovingTransitionAnimator1.gif)![sample1](https://github.com/jegumhon/URMovingTransitionAnimator/blob/master/Resources/URMovingTransitionAnimator2-gesture.gif)
 
+## Requirements
+
+* iOS 8.1+
+* Swift 3.0+
+
 ## Installation
 ### Cocoapods
 Add the following to your `Podfile`.
