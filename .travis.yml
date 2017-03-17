@@ -13,6 +13,6 @@ before_install:
   - pod repo update > /dev/null
   - pod install --project-directory=Example
 script:
-  - xcodebuild -scheme URExampleMovingTransition -workspace Example/URExampleMovingTransition.xcworkspace -sdk iphonesimulator -destination 'platform=iOS,OS=10.2,name=iPhone 7' build test
+  - xcodebuild -scheme URExampleMovingTransition -workspace Example/URExampleMovingTransition.xcworkspace -sdk iphonesimulator -destination 'platform:iOS Simulator, id:E40727B3-41FB-4D6E-B4CB-BFA87109EB12, OS:10.2, name:iPhone 7' build test
 after_success:
   - bash <(curl -s https://codecov.io/bash) -cF ios
