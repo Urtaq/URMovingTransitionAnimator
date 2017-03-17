@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E3D272ADC9138D4E2235B05 /* Pods_URExampleMovingTransitionTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C96FD78B97452175EF0255F5 /* Pods_URExampleMovingTransitionTests.framework */; };
+		1A834B4F8DCE530689109D82 /* Pods_URExampleMovingTransitionUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F45A8D764B6CD0CD7F681E79 /* Pods_URExampleMovingTransitionUITests.framework */; };
 		973095D51E7A9C8500B58892 /* URExampleMovingTransitionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973095D41E7A9C8500B58892 /* URExampleMovingTransitionUITests.swift */; };
 		973095E31E7A9C8E00B58892 /* URExampleMovingTransitionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973095E21E7A9C8E00B58892 /* URExampleMovingTransitionTests.swift */; };
 		975FD85F1E778D2600F409CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975FD85E1E778D2600F409CB /* AppDelegate.swift */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2763BF882E3AB53C16E94E20 /* Pods-URExampleMovingTransitionUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-URExampleMovingTransitionUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-URExampleMovingTransitionUITests/Pods-URExampleMovingTransitionUITests.release.xcconfig"; sourceTree = "<group>"; };
+		4A9D0322055DA5C48F602B18 /* Pods-URExampleMovingTransitionUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-URExampleMovingTransitionUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-URExampleMovingTransitionUITests/Pods-URExampleMovingTransitionUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5943B670FD700158EC0F7FD2 /* Pods-URExampleMovingTransition.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-URExampleMovingTransition.debug.xcconfig"; path = "Pods/Target Support Files/Pods-URExampleMovingTransition/Pods-URExampleMovingTransition.debug.xcconfig"; sourceTree = "<group>"; };
 		878E02F5933CA948105312B8 /* Pods_URExampleMovingTransition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_URExampleMovingTransition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		973095D21E7A9C8400B58892 /* URExampleMovingTransitionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = URExampleMovingTransitionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,7 +58,11 @@
 		975FD86A1E778D2600F409CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		975FD8741E779D7200F409CB /* URExampleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URExampleTableViewCell.swift; sourceTree = "<group>"; };
 		975FD8761E77A26300F409CB /* URExampleDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URExampleDetailViewController.swift; sourceTree = "<group>"; };
+		C96FD78B97452175EF0255F5 /* Pods_URExampleMovingTransitionTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_URExampleMovingTransitionTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2C086F913B554ABBBB13204 /* Pods-URExampleMovingTransition.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-URExampleMovingTransition.release.xcconfig"; path = "Pods/Target Support Files/Pods-URExampleMovingTransition/Pods-URExampleMovingTransition.release.xcconfig"; sourceTree = "<group>"; };
+		E53489E0379F82DC6990C4BD /* Pods-URExampleMovingTransitionTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-URExampleMovingTransitionTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-URExampleMovingTransitionTests/Pods-URExampleMovingTransitionTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F03D76ABA8AB4711F5351CB5 /* Pods-URExampleMovingTransitionTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-URExampleMovingTransitionTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-URExampleMovingTransitionTests/Pods-URExampleMovingTransitionTests.release.xcconfig"; sourceTree = "<group>"; };
+		F45A8D764B6CD0CD7F681E79 /* Pods_URExampleMovingTransitionUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_URExampleMovingTransitionUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A834B4F8DCE530689109D82 /* Pods_URExampleMovingTransitionUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E3D272ADC9138D4E2235B05 /* Pods_URExampleMovingTransitionTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +152,8 @@
 			isa = PBXGroup;
 			children = (
 				878E02F5933CA948105312B8 /* Pods_URExampleMovingTransition.framework */,
+				C96FD78B97452175EF0255F5 /* Pods_URExampleMovingTransitionTests.framework */,
+				F45A8D764B6CD0CD7F681E79 /* Pods_URExampleMovingTransitionUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -151,6 +163,10 @@
 			children = (
 				5943B670FD700158EC0F7FD2 /* Pods-URExampleMovingTransition.debug.xcconfig */,
 				D2C086F913B554ABBBB13204 /* Pods-URExampleMovingTransition.release.xcconfig */,
+				E53489E0379F82DC6990C4BD /* Pods-URExampleMovingTransitionTests.debug.xcconfig */,
+				F03D76ABA8AB4711F5351CB5 /* Pods-URExampleMovingTransitionTests.release.xcconfig */,
+				4A9D0322055DA5C48F602B18 /* Pods-URExampleMovingTransitionUITests.debug.xcconfig */,
+				2763BF882E3AB53C16E94E20 /* Pods-URExampleMovingTransitionUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -162,9 +178,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 973095DB1E7A9C8500B58892 /* Build configuration list for PBXNativeTarget "URExampleMovingTransitionUITests" */;
 			buildPhases = (
+				FB2BE06851CB9E5C0015943B /* [CP] Check Pods Manifest.lock */,
 				973095CE1E7A9C8400B58892 /* Sources */,
 				973095CF1E7A9C8400B58892 /* Frameworks */,
 				973095D01E7A9C8400B58892 /* Resources */,
+				57336B587FD8D7F47A0D1192 /* [CP] Embed Pods Frameworks */,
+				07A6BDA72A043CD20AD5720A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -180,9 +199,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 973095E71E7A9C8E00B58892 /* Build configuration list for PBXNativeTarget "URExampleMovingTransitionTests" */;
 			buildPhases = (
+				21E1F87BC2805CF384EF2075 /* [CP] Check Pods Manifest.lock */,
 				973095DC1E7A9C8E00B58892 /* Sources */,
 				973095DD1E7A9C8E00B58892 /* Frameworks */,
 				973095DE1E7A9C8E00B58892 /* Resources */,
+				590ACC4DE2984030CA9900CD /* [CP] Embed Pods Frameworks */,
+				6A629B5BB0EE2D91B2735A05 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -291,6 +313,81 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		07A6BDA72A043CD20AD5720A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-URExampleMovingTransitionUITests/Pods-URExampleMovingTransitionUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		21E1F87BC2805CF384EF2075 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		57336B587FD8D7F47A0D1192 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-URExampleMovingTransitionUITests/Pods-URExampleMovingTransitionUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		590ACC4DE2984030CA9900CD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-URExampleMovingTransitionTests/Pods-URExampleMovingTransitionTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6A629B5BB0EE2D91B2735A05 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-URExampleMovingTransitionTests/Pods-URExampleMovingTransitionTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B3CE28675669C2449D333E9D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -334,6 +431,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-URExampleMovingTransition/Pods-URExampleMovingTransition-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB2BE06851CB9E5C0015943B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -403,6 +515,7 @@
 /* Begin XCBuildConfiguration section */
 		973095D91E7A9C8500B58892 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A9D0322055DA5C48F602B18 /* Pods-URExampleMovingTransitionUITests.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 7AX2JZT3L8;
 				INFOPLIST_FILE = URExampleMovingTransitionUITests/Info.plist;
@@ -416,6 +529,7 @@
 		};
 		973095DA1E7A9C8500B58892 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2763BF882E3AB53C16E94E20 /* Pods-URExampleMovingTransitionUITests.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 7AX2JZT3L8;
 				INFOPLIST_FILE = URExampleMovingTransitionUITests/Info.plist;
@@ -429,6 +543,7 @@
 		};
 		973095E81E7A9C8E00B58892 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E53489E0379F82DC6990C4BD /* Pods-URExampleMovingTransitionTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 7AX2JZT3L8;
@@ -443,6 +558,7 @@
 		};
 		973095E91E7A9C8E00B58892 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F03D76ABA8AB4711F5351CB5 /* Pods-URExampleMovingTransitionTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 7AX2JZT3L8;
