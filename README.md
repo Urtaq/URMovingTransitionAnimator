@@ -21,3 +21,6 @@ Add the following to your `Podfile`.
 
 ## Usage
 
+## License
+
+URMovingTransitionAnimator is available under the MIT license. See the [LICENSE](LICENSE) file for more info.
