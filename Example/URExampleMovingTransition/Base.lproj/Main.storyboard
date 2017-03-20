@@ -135,9 +135,17 @@
                                 </constraints>
                                 <blurEffect style="light"/>
                             </visualEffectView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b99-PU-Cs2">
+                                <rect key="frame" x="160.5" y="318" width="53" height="30"/>
+                                <state key="normal" title="Change"/>
+                                <connections>
+                                    <action selector="changImg:" destination="8FI-Na-qcf" eventType="touchUpInside" id="2d9-BM-PFy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="b99-PU-Cs2" firstAttribute="centerY" secondItem="I2c-13-eam" secondAttribute="centerY" id="113-OL-AR5"/>
                             <constraint firstItem="INw-aK-Ob4" firstAttribute="height" secondItem="I2c-13-eam" secondAttribute="height" multiplier="1:2" id="1Wa-Qg-Fns"/>
                             <constraint firstItem="l4S-bj-rgT" firstAttribute="centerY" secondItem="I2c-13-eam" secondAttribute="centerY" multiplier="1.5" id="7qd-Kj-b8f"/>
                             <constraint firstItem="l4S-bj-rgT" firstAttribute="centerX" secondItem="Fhj-QC-Y7W" secondAttribute="centerX" id="MHH-Md-ZAj"/>
@@ -146,6 +154,7 @@
                             <constraint firstItem="INw-aK-Ob4" firstAttribute="centerX" secondItem="I2c-13-eam" secondAttribute="centerX" id="ePy-YG-6x0"/>
                             <constraint firstAttribute="trailing" secondItem="INw-aK-Ob4" secondAttribute="trailing" id="eec-Ht-KCo"/>
                             <constraint firstItem="INw-aK-Ob4" firstAttribute="top" secondItem="f5W-Sn-PE8" secondAttribute="bottom" id="ifW-xn-c2C"/>
+                            <constraint firstItem="b99-PU-Cs2" firstAttribute="centerX" secondItem="I2c-13-eam" secondAttribute="centerX" id="ksX-JV-Cu0"/>
                             <constraint firstItem="INw-aK-Ob4" firstAttribute="leading" secondItem="I2c-13-eam" secondAttribute="leading" id="rZI-Nc-r3p"/>
                         </constraints>
                     </view>
