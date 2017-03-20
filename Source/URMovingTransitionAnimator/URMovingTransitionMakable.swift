@@ -18,7 +18,7 @@ public protocol URMovingTransitionMakable: class {
     var navigationController: UINavigationController? { get }
     var isPopableViewController: Bool { get }
 
-    func makeTransitionAnimator(target: UIView, baseOn: UIView, duration: Double, needScaleEffect: Bool, scale: CGFloat)
+    func makeTransitionAnimator(target: UIView, baseOn: UIView, duration: Double, needClipToBounds: Bool, needScaleEffect: Bool, scale: CGFloat)
 }
 
 extension URMovingTransitionMakable where Self: UIViewController {
@@ -61,9 +61,9 @@ extension URMovingTransitionMakable where Self: UIViewController {
         self.navigationController?.view.removeGestureRecognizer(self.panGesture)
     }
 
-    public func makeTransitionAnimator(target: UIView, baseOn: UIView, duration: Double, needScaleEffect: Bool = false, scale: CGFloat = 1.0) {
+    public func makeTransitionAnimator(target: UIView, baseOn: UIView, duration: Double, needClipToBounds: Bool = false, needScaleEffect: Bool = false, scale: CGFloat = 1.0) {
         if let _ = self.navigationController?.delegate as? URMovingTransitionAnimatorDelegate {
-            self.animator = URMoveBlurredTransitioningAnimator(target: target, basedOn: baseOn, duration: duration)
+            self.animator = URMoveBlurredTransitioningAnimator(target: target, basedOn: baseOn, needClipToBounds: needClipToBounds, duration: duration)
             if needScaleEffect {
                 (self.animator as! URMoveTransitioningAnimator).scale = scale
             }

@@ -74,10 +74,10 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
 
     var transitionContext: UIViewControllerContextTransitioning!
 
-    public init(target view: UIView, basedOn viewForStartingFrameCaculation: UIView?, isLazyCompletion: Bool = false, duration: TimeInterval = 0.25, finishingDuration: TimeInterval = 0.8) {
+    public init(target view: UIView, basedOn viewForStartingFrameCaculation: UIView?, needClipToBounds: Bool = false, isLazyCompletion: Bool = false, duration: TimeInterval = 0.25, finishingDuration: TimeInterval = 0.8) {
         super.init()
 
-        self.movingView = self.copyView(view: view)
+        self.movingView = self.copyView(view: view, needClipToBounds: needClipToBounds)
 
         let startingOrigin = view.convert(view.frame, to: viewForStartingFrameCaculation)
         self.startingPoint = startingOrigin.origin
@@ -89,26 +89,26 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
     }
 
     /// make copied view to remove the reference of original view, because of the side effects related on the original view
-    func copyView(view: UIView) -> UIView {
+    func copyView(view: UIView, needClipToBounds: Bool = false) -> UIView {
         if view is UIImageView {
-            return self.copyView(imageView: view as! UIImageView)
+            return self.copyView(imageView: view as! UIImageView, needClipToBounds: needClipToBounds)
         }
 
         let copiedView = view.snapshotView(afterScreenUpdates: false)!
         copiedView.frame = view.frame
         copiedView.backgroundColor = view.backgroundColor
         copiedView.contentMode = view.contentMode
-        copiedView.clipsToBounds = view.clipsToBounds
+        copiedView.clipsToBounds = needClipToBounds
 
         return copiedView
     }
 
-    func copyView(imageView: UIImageView) -> UIImageView {
+    func copyView(imageView: UIImageView, needClipToBounds: Bool = false) -> UIImageView {
         let copiedView = UIImageView(image: imageView.image)
         copiedView.frame = imageView.frame
         copiedView.backgroundColor = imageView.backgroundColor
         copiedView.contentMode = imageView.contentMode
-        copiedView.clipsToBounds = imageView.clipsToBounds
+        copiedView.clipsToBounds = needClipToBounds
 
         return copiedView
     }
