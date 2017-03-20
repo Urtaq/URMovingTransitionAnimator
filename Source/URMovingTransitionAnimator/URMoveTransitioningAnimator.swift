@@ -94,18 +94,23 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
             return self.copyView(imageView: view as! UIImageView)
         }
 
-        let view = view.snapshotView(afterScreenUpdates: false)!
+        let copiedView = view.snapshotView(afterScreenUpdates: false)!
+        copiedView.frame = view.frame
+        copiedView.backgroundColor = view.backgroundColor
+        copiedView.contentMode = view.contentMode
+        copiedView.clipsToBounds = view.clipsToBounds
 
-        return view
+        return copiedView
     }
 
     func copyView(imageView: UIImageView) -> UIImageView {
-        let view = UIImageView(image: imageView.image)
-        view.backgroundColor = imageView.backgroundColor
-        view.contentMode = imageView.contentMode
-        view.frame = imageView.frame
+        let copiedView = UIImageView(image: imageView.image)
+        copiedView.frame = imageView.frame
+        copiedView.backgroundColor = imageView.backgroundColor
+        copiedView.contentMode = imageView.contentMode
+        copiedView.clipsToBounds = imageView.clipsToBounds
 
-        return view
+        return copiedView
     }
 
     public init(view: UIView, startingFrame: CGRect = CGRect.zero, isLazyCompletion: Bool = false, duration: TimeInterval = 0.25, finishingDuration: TimeInterval = 0.8) {

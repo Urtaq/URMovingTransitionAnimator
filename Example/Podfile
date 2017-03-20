@@ -6,7 +6,7 @@ target 'URExampleMovingTransition' do
   use_frameworks!
 
   # Pods for URExampleMovingTransition
-  pod 'URMovingTransitionAnimator'
+  pod 'URMovingTransitionAnimator', :path => '../'
 
   target 'URExampleMovingTransitionTests' do
     inherit! :search_paths
