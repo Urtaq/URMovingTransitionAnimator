@@ -39,7 +39,7 @@ public class URMovingTransitionAnimatorDelegate: NSObject, UINavigationControlle
             let d: CGFloat = fabs(translation.x / view.bounds.width)
 
             self.movingTransitionViewController.interactionController.update(d)
-        } else if gesture.state == .ended {
+        } else if gesture.state == .ended || gesture.state == .cancelled || gesture.state == .failed {
             let translation = gesture.translation(in: view)
             let d: CGFloat = fabs(translation.x / view.bounds.width)
 
