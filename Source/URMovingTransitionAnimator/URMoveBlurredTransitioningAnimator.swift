@@ -17,13 +17,21 @@ public class URMoveBlurredTransitioningAnimator: URMoveTransitioningAnimator {
 
         super.makeMovingKeyframe(movingView, finishingFrame, withRelativeStartTime: withRelativeStartTime, relativeDuration: relativeDuration)
 
-        UIView.addKeyframe(withRelativeStartTime: withRelativeStartTime, relativeDuration: relativeDuration) {
+        UIView.addKeyframe(withRelativeStartTime: withRelativeStartTime, relativeDuration: relativeDuration / 2.0) {
             let blurEffect = UIBlurEffect(style: .light)
 //            let vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect)
 
             self.blurView?.effect = blurEffect
+        }
+
+        UIView.addKeyframe(withRelativeStartTime: withRelativeStartTime + relativeDuration / 2.0, relativeDuration: relativeDuration / 2.0) { 
+            self.blurView?.effect = nil
+        }
+
+        UIView.addKeyframe(withRelativeStartTime: withRelativeStartTime, relativeDuration: relativeDuration) {
 
             self.fromViewSnapShot?.transform = CGAffineTransform(scaleX: 0.97, y: 0.97)
+            self.fromViewSnapShot?.alpha = 0.0
         }
     }
 
@@ -32,9 +40,6 @@ public class URMoveBlurredTransitioningAnimator: URMoveTransitioningAnimator {
         self.blurView = UIVisualEffectView()
 
         self.transitionCompletion = { (transitionContext) in
-
-            self.blurView?.effect = nil
-            self.fromViewSnapShot?.alpha = 0.0
 
             if let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to), toViewController is URMovingTransitionReceivable && !self.isLazyCompletion {
                 (toViewController as! URMovingTransitionReceivable).removeTransitionView(duration: self.transitionFinishDuration)
