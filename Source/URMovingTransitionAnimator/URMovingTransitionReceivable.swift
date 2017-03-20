@@ -13,7 +13,7 @@ public protocol URMovingTransitionReceivable: class {
 
     func transitionFinishingFrame(startingFrame: CGRect) -> CGRect
     func makeTransitionView(originView: UIView)
-    func removeTransitionView(duration: Double)
+    func removeTransitionView(duration: Double, completion: (() -> Void)?)
 }
 
 public extension URMovingTransitionReceivable where Self: UIViewController {
@@ -23,12 +23,15 @@ public extension URMovingTransitionReceivable where Self: UIViewController {
         self.transitionView = originView
     }
 
-    func removeTransitionView(duration: Double) {
+    func removeTransitionView(duration: Double, completion: (() -> Void)?) {
         if let view = self.transitionView {
             UIView.animate(withDuration: duration, animations: {
                 view.alpha = 0.0
             }, completion: { (finish) in
                 self.view.sendSubview(toBack: view)
+
+                guard let block = completion else { return }
+                block()
             })
         }
     }

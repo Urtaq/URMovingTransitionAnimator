@@ -42,7 +42,7 @@ public class URMoveBlurredTransitioningAnimator: URMoveTransitioningAnimator {
         self.transitionCompletion = { (transitionContext) in
 
             if let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to), toViewController is URMovingTransitionReceivable && !self.isLazyCompletion {
-                (toViewController as! URMovingTransitionReceivable).removeTransitionView(duration: self.transitionFinishDuration)
+                (toViewController as! URMovingTransitionReceivable).removeTransitionView(duration: self.transitionFinishDuration, completion: nil)
             }
 
             UIView.animate(withDuration: self.transitionFinishDuration, animations: {
