@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="64" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="0of-BM-YeB">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="549"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableViewCell" id="kaT-LH-VXe" customClass="URExampleTableViewCell" customModule="URExampleMovingTransition" customModuleProvider="target">
@@ -68,17 +68,81 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="wwL-m5-7Gr"/>
                                 </connections>
                             </tableView>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MpA-BK-VSC">
+                                <rect key="frame" x="10" y="626" width="51" height="31"/>
+                                <connections>
+                                    <action selector="switchNeedBlurred:" destination="BYZ-38-t0r" eventType="valueChanged" id="PZZ-AY-tB6"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="With Blur" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKe-cK-zNO">
+                                <rect key="frame" x="67" y="631" width="71" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.40000000000000002" minValue="0.0" maxValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="Md5-jg-CIf">
+                                <rect key="frame" x="239" y="627" width="118" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="114" id="JoB-ca-qUs"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="changeDurationSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="Bic-Pn-LzW"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AQb-F4-QHr">
+                                <rect key="frame" x="229" y="613" width="24" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3b-Hx-Pfy">
+                                <rect key="frame" x="167" y="630.5" width="66" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBp-p0-7Kf">
+                                <rect key="frame" x="343" y="613" width="24" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kGI-p6-m1j">
+                                <rect key="frame" x="286" y="613" width="24" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0of-BM-YeB" secondAttribute="bottom" id="PH3-Aa-4V4"/>
+                            <constraint firstItem="MpA-BK-VSC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="6oh-xQ-H7f"/>
+                            <constraint firstItem="Md5-jg-CIf" firstAttribute="centerY" secondItem="h3b-Hx-Pfy" secondAttribute="centerY" constant="1" id="9cl-2f-5eq"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0of-BM-YeB" secondAttribute="bottom" constant="54" id="PH3-Aa-4V4"/>
                             <constraint firstItem="0of-BM-YeB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="QUT-ZW-Kdz"/>
+                            <constraint firstAttribute="trailing" secondItem="cBp-p0-7Kf" secondAttribute="trailing" constant="8" id="RQv-O6-Ipe"/>
+                            <constraint firstItem="Md5-jg-CIf" firstAttribute="leading" secondItem="AQb-F4-QHr" secondAttribute="leading" constant="12" id="Rmp-YF-NXf"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="cBp-p0-7Kf" secondAttribute="bottom" constant="33" id="VZF-Si-yn1"/>
+                            <constraint firstItem="kGI-p6-m1j" firstAttribute="centerX" secondItem="Md5-jg-CIf" secondAttribute="centerX" id="g4g-Ln-6u9"/>
+                            <constraint firstAttribute="trailing" secondItem="Md5-jg-CIf" secondAttribute="trailing" constant="20" id="g7K-Tr-pBM"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="MpA-BK-VSC" secondAttribute="bottom" constant="10" id="ggv-J2-fxg"/>
+                            <constraint firstItem="Md5-jg-CIf" firstAttribute="leading" secondItem="h3b-Hx-Pfy" secondAttribute="trailing" constant="8" id="hZW-fc-HpM"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kGI-p6-m1j" secondAttribute="bottom" constant="33" id="pFf-du-jCt"/>
+                            <constraint firstItem="CKe-cK-zNO" firstAttribute="leading" secondItem="MpA-BK-VSC" secondAttribute="trailing" constant="8" id="qEu-uS-yOu"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Md5-jg-CIf" secondAttribute="bottom" constant="10" id="t3z-km-NdN"/>
                             <constraint firstItem="0of-BM-YeB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="tVp-xX-O5M"/>
                             <constraint firstAttribute="trailing" secondItem="0of-BM-YeB" secondAttribute="trailing" id="twK-gB-R5K"/>
+                            <constraint firstItem="CKe-cK-zNO" firstAttribute="centerY" secondItem="MpA-BK-VSC" secondAttribute="centerY" id="whj-2w-ejD"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="AQb-F4-QHr" secondAttribute="bottom" constant="33" id="y7n-EX-dr8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Main" id="KyT-3E-qHE"/>
                     <connections>
+                        <outlet property="lbBlurred" destination="CKe-cK-zNO" id="80N-FK-YPD"/>
+                        <outlet property="lbCurrentDuration" destination="kGI-p6-m1j" id="Jae-g0-Bld"/>
+                        <outlet property="lbMaxDuration" destination="cBp-p0-7Kf" id="dSI-rc-Wsv"/>
+                        <outlet property="slDuration" destination="Md5-jg-CIf" id="9BO-5n-FNV"/>
+                        <outlet property="swBlurred" destination="MpA-BK-VSC" id="iza-mG-82I"/>
                         <outlet property="tableView" destination="0of-BM-YeB" id="BeL-Xy-LbZ"/>
                         <segue destination="8FI-Na-qcf" kind="show" identifier="showDetail" id="LNH-Ar-HkA"/>
                     </connections>

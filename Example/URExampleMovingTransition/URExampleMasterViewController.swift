@@ -16,7 +16,16 @@ class URExampleMasterViewController: UIViewController, URMovingTransitionMakable
     var interactionController: UIPercentDrivenInteractiveTransition!
     var movingTransitionDelegate: URMovingTransitionAnimatorDelegate!
 
+    var duration: Double = 0.4
+
     @IBOutlet var tableView: UITableView!
+
+    @IBOutlet var swBlurred: UISwitch!
+    @IBOutlet var lbBlurred: UILabel!
+
+    @IBOutlet var slDuration: UISlider!
+    @IBOutlet var lbCurrentDuration: UILabel!
+    @IBOutlet var lbMaxDuration: UILabel!
 
     var images: [UIImage] = [#imageLiteral(resourceName: "suzy1"), #imageLiteral(resourceName: "suzy2"), #imageLiteral(resourceName: "sulhyun1"), #imageLiteral(resourceName: "sulhyun2"), #imageLiteral(resourceName: "sulhyun3"), #imageLiteral(resourceName: "sulhyun4")]
     var strings: [String] = ["Oriental Style Suzy", "Suzy who grapped a mic", "SeolHyun in swimming suit", "SeolHyun with hand bag", "Standing SeolHyun", "Laying down SeolHyun"]
@@ -28,6 +37,9 @@ class URExampleMasterViewController: UIViewController, URMovingTransitionMakable
         self.initMovingTrasitionGesture()
 
         self.tableView.rowHeight = UITableViewAutomaticDimension
+
+        self.lbCurrentDuration.text = String(self.slDuration.value)
+        self.lbMaxDuration.text = String(self.slDuration.maximumValue)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -77,8 +89,11 @@ class URExampleMasterViewController: UIViewController, URMovingTransitionMakable
 
 //            navigationDelegate.animator = URMoveBlurredTransitioningAnimator(view: view, startingOrigin: originRect.origin)
 
-//            self.makeTransitionAnimator(target: cell.imgView, baseOn: tableView.superview!, duration: 0.4, needClipToBounds: true)
-            self.makeBlurredTransitionAnimator(target: cell.imgView, baseOn: tableView.superview!, duration: 0.4, needClipToBounds: true)
+            if self.swBlurred.isOn {
+                self.makeBlurredTransitionAnimator(target: cell.imgView, baseOn: tableView.superview!, duration: Double(self.slDuration.value), needClipToBounds: true)
+            } else {
+                self.makeTransitionAnimator(target: cell.imgView, baseOn: tableView.superview!, duration: Double(self.slDuration.value), needClipToBounds: true)
+            }
         }
 
         self.performSegue(withIdentifier: "showDetail", sender: tableView.cellForRow(at: indexPath))
@@ -90,6 +105,18 @@ class URExampleMasterViewController: UIViewController, URMovingTransitionMakable
         cell.config(image: self.images[indexPath.row], text: self.strings[indexPath.row])
 
         return cell
+    }
+
+    @IBAction func switchNeedBlurred(_ sender: Any) {
+        if self.swBlurred.isOn {
+            self.lbBlurred.text = "With Blur"
+        } else {
+            self.lbBlurred.text = "Without Blur"
+        }
+    }
+
+    @IBAction func changeDurationSlider(_ sender: Any) {
+        self.lbCurrentDuration.text = String(self.slDuration.value)
     }
 }
 
