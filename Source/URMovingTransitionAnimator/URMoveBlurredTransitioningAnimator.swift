@@ -41,11 +41,12 @@ public class URMoveBlurredTransitioningAnimator: URMoveTransitioningAnimator {
 
         self.transitionCompletion = { (transitionContext) in
 
+            let finishDuration = self.transitionDirection == .push ? self.transitionFinishDuration : self.transitionFinishDurationForPop
             if let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to), toViewController is URMovingTransitionReceivable && !self.isLazyCompletion {
-                (toViewController as! URMovingTransitionReceivable).removeTransitionView(duration: self.transitionFinishDuration, completion: nil)
+                (toViewController as! URMovingTransitionReceivable).removeTransitionView(duration: finishDuration, completion: nil)
             }
 
-            UIView.animate(withDuration: self.transitionFinishDuration, animations: {
+            UIView.animate(withDuration: finishDuration, animations: {
                 if !transitionContext.transitionWasCancelled {
                     self.movingView?.alpha = 0.8
                 }

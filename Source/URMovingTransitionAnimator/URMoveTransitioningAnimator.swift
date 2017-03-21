@@ -56,25 +56,26 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
         }
     }
 
-    fileprivate var _preFinishingFrame: CGRect = CGRect.zero
-    var finishingFrame: CGRect = CGRect.zero
+    fileprivate var _preFinishingFrame: CGRect                  = CGRect.zero
+    var finishingFrame: CGRect                                  = CGRect.zero
 
-    var desiredFinishingSize: CGSize = CGSize.zero
-    var desiredFinishingContentMode: UIViewContentMode = .scaleToFill
+    var desiredFinishingSize: CGSize                            = CGSize.zero
+    var desiredFinishingContentMode: UIViewContentMode          = .scaleToFill
 
     var isConsiderableNavigationHeight: Bool = true
-    var transitionDirection: UINavigationControllerOperation = .none
-    var transitionDuration: TimeInterval = 0.25
-    var transitionFinishDuration: TimeInterval = 0.8
-    var scale: CGFloat = 1.0
+    var transitionDirection: UINavigationControllerOperation    = .none
+    var transitionDuration: TimeInterval                        = 0.25
+    var transitionFinishDuration: TimeInterval                  = 0.8
+    var transitionFinishDurationForPop: TimeInterval            = 0.2
+    var scale: CGFloat                                          = 1.0
 
+    var isLazyCompletion: Bool                                  = false
     var transitionPreAction: (() -> Void)?
     var transitionCompletion: ((_ transitionContext: UIViewControllerContextTransitioning) -> Void)?
-    var isLazyCompletion: Bool = false
 
     var transitionContext: UIViewControllerContextTransitioning!
 
-    public init(target view: UIView, basedOn viewForStartingFrameCaculation: UIView?, needClipToBounds: Bool = false, isLazyCompletion: Bool = false, duration: TimeInterval = 0.25, finishingDuration: TimeInterval = 0.8) {
+    public init(target view: UIView, basedOn viewForStartingFrameCaculation: UIView?, needClipToBounds: Bool = false, isLazyCompletion: Bool = false, duration: TimeInterval = 0.25, finishingDuration: TimeInterval = 0.8, finishingDurationForPop: TimeInterval = 0.2) {
         super.init()
 
         self.movingView = self.copyView(view: view, needClipToBounds: needClipToBounds)
@@ -85,6 +86,7 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
 
         self.transitionDuration = duration
         self.transitionFinishDuration = finishingDuration
+        self.transitionFinishDurationForPop = finishingDurationForPop
         self.isLazyCompletion = isLazyCompletion
     }
 
@@ -113,7 +115,7 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
         return copiedView
     }
 
-    public init(view: UIView, startingFrame: CGRect = CGRect.zero, isLazyCompletion: Bool = false, duration: TimeInterval = 0.25, finishingDuration: TimeInterval = 0.8) {
+    public init(view: UIView, startingFrame: CGRect = CGRect.zero, isLazyCompletion: Bool = false, duration: TimeInterval = 0.25, finishingDuration: TimeInterval = 0.8, finishingDurationForPop: TimeInterval = 0.2) {
         super.init()
 
         self.movingView = view
@@ -122,10 +124,11 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
 
         self.transitionDuration = duration
         self.transitionFinishDuration = finishingDuration
+        self.transitionFinishDurationForPop = finishingDurationForPop
         self.isLazyCompletion = isLazyCompletion
     }
 
-    public init(view: UIView, startingOrigin: CGPoint = CGPoint.zero, isLazyCompletion: Bool = false, duration: TimeInterval = 0.25, finishingDuration: TimeInterval = 0.8) {
+    public init(view: UIView, startingOrigin: CGPoint = CGPoint.zero, isLazyCompletion: Bool = false, duration: TimeInterval = 0.25, finishingDuration: TimeInterval = 0.8, finishingDurationForPop: TimeInterval = 0.2) {
         super.init()
 
         self.movingView = view
@@ -134,6 +137,7 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
 
         self.transitionDuration = duration
         self.transitionFinishDuration = finishingDuration
+        self.transitionFinishDurationForPop = finishingDurationForPop
         self.isLazyCompletion = isLazyCompletion
     }
 
@@ -204,11 +208,12 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
                 return
             }
 
+            let finishDuration = self.transitionDirection == .push ? self.transitionFinishDuration : self.transitionFinishDurationForPop
             if let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to), toViewController is URMovingTransitionReceivable && !self.isLazyCompletion {
-                (toViewController as! URMovingTransitionReceivable).removeTransitionView(duration: self.transitionFinishDuration, completion: nil)
+                (toViewController as! URMovingTransitionReceivable).removeTransitionView(duration: finishDuration, completion: nil)
             }
 
-            UIView.animate(withDuration: self.transitionFinishDuration, animations: {
+            UIView.animate(withDuration: finishDuration, animations: {
                 movedView.alpha = 0.1
             }, completion: { (finish) in
                 movedView.removeFromSuperview()
