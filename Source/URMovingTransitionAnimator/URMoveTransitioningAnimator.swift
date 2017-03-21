@@ -75,7 +75,7 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
 
     var transitionContext: UIViewControllerContextTransitioning!
 
-    public init(target view: UIView, basedOn viewForStartingFrameCaculation: UIView?, needClipToBounds: Bool = false, isLazyCompletion: Bool = false, duration: TimeInterval = 0.25, finishingDuration: TimeInterval = 0.8, finishingDurationForPop: TimeInterval = 0.2) {
+    public init(target view: UIView, basedOn viewForStartingFrameCaculation: UIView?, needClipToBounds: Bool = false, duration: TimeInterval = 0.25, finishingDuration: TimeInterval = 0.8, finishingDurationForPop: TimeInterval = 0.2, isLazyCompletion: Bool = false) {
         super.init()
 
         self.movingView = self.copyView(view: view, needClipToBounds: needClipToBounds)
@@ -115,7 +115,7 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
         return copiedView
     }
 
-    public init(view: UIView, startingFrame: CGRect = CGRect.zero, isLazyCompletion: Bool = false, duration: TimeInterval = 0.25, finishingDuration: TimeInterval = 0.8, finishingDurationForPop: TimeInterval = 0.2) {
+    public init(view: UIView, startingFrame: CGRect = CGRect.zero, duration: TimeInterval = 0.25, finishingDuration: TimeInterval = 0.8, finishingDurationForPop: TimeInterval = 0.2, isLazyCompletion: Bool = false) {
         super.init()
 
         self.movingView = view
@@ -128,7 +128,7 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
         self.isLazyCompletion = isLazyCompletion
     }
 
-    public init(view: UIView, startingOrigin: CGPoint = CGPoint.zero, isLazyCompletion: Bool = false, duration: TimeInterval = 0.25, finishingDuration: TimeInterval = 0.8, finishingDurationForPop: TimeInterval = 0.2) {
+    public init(view: UIView, startingOrigin: CGPoint = CGPoint.zero, duration: TimeInterval = 0.25, finishingDuration: TimeInterval = 0.8, finishingDurationForPop: TimeInterval = 0.2, isLazyCompletion: Bool = false) {
         super.init()
 
         self.movingView = view
