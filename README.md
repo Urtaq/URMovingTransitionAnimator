@@ -8,7 +8,7 @@ This code style is the **`Protocol Oriented Programming`**.
 So you don't need to inherit. Just Implement protocols.  
 You can handle some parameter to customize this transition. e.g. scale, duration, etc.
 
-![sample1](https://github.com/jegumhon/URMovingTransitionAnimator/blob/master/Resources/URMovingTransitionAnimator1.gif)![sample1](https://github.com/jegumhon/URMovingTransitionAnimator/blob/master/Resources/URMovingTransitionAnimator2-gesture.gif)
+![sample1](https://github.com/jegumhon/URMovingTransitionAnimator/blob/master/Resources/URMovingTransitionAnimator1.gif)![sample1](https://github.com/jegumhon/URMovingTransitionAnimator/blob/master/Resources/URMovingTransitionAnimator2_gesture.gif)
 
 ## Requirements
 
