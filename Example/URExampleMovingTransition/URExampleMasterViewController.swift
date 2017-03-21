@@ -77,7 +77,8 @@ class URExampleMasterViewController: UIViewController, URMovingTransitionMakable
 
 //            navigationDelegate.animator = URMoveBlurredTransitioningAnimator(view: view, startingOrigin: originRect.origin)
 
-            self.makeTransitionAnimator(target: cell.imgView, baseOn: tableView.superview!, duration: 0.4, needClipToBounds: true)
+//            self.makeTransitionAnimator(target: cell.imgView, baseOn: tableView.superview!, duration: 0.4, needClipToBounds: true)
+            self.makeBlurredTransitionAnimator(target: cell.imgView, baseOn: tableView.superview!, duration: 0.4, needClipToBounds: true)
         }
 
         self.performSegue(withIdentifier: "showDetail", sender: tableView.cellForRow(at: indexPath))
