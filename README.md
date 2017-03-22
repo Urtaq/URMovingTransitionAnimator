@@ -1,6 +1,6 @@
 # URMovingTransitionAnimator
 
-[![podplatform](https://cocoapod-badges.herokuapp.com/p/URMovingTransitionAnimator/badge.png)](https://cocoapod-badges.herokuapp.com/p/URMovingTransitionAnimator/badge.png) ![pod](https://cocoapod-badges.herokuapp.com/v/URMovingTransitionAnimator/badge.png) ![license](https://cocoapod-badges.herokuapp.com/l/URMovingTransitionAnimator/badge.png) ![travis](https://travis-ci.org/jegumhon/URMovingTransitionAnimator.svg?branch=master) [![codecov](https://codecov.io/gh/jegumhon/URMovingTransitionAnimator/branch/master/graph/badge.svg)](https://codecov.io/gh/jegumhon/URMovingTransitionAnimator) [![CocoaPods compatible](https://img.shields.io/badge/CocoaPods-compatible-4BC51D.svg?style=flat)](https://github.com/CocoaPods/CocoaPods)
+ [![Swift](https://img.shields.io/badge/swift-3.0-orange.svg)](https://swift.org) [![podplatform](https://cocoapod-badges.herokuapp.com/p/URMovingTransitionAnimator/badge.png)](https://cocoapod-badges.herokuapp.com/p/URMovingTransitionAnimator/badge.png) ![pod](https://cocoapod-badges.herokuapp.com/v/URMovingTransitionAnimator/badge.png) ![license](https://cocoapod-badges.herokuapp.com/l/URMovingTransitionAnimator/badge.png) ![travis](https://travis-ci.org/jegumhon/URMovingTransitionAnimator.svg?branch=master) [![codecov](https://codecov.io/gh/jegumhon/URMovingTransitionAnimator/branch/master/graph/badge.svg)](https://codecov.io/gh/jegumhon/URMovingTransitionAnimator) [![CocoaPods compatible](https://img.shields.io/badge/CocoaPods-compatible-4BC51D.svg?style=flat)](https://github.com/CocoaPods/CocoaPods)
 
 ## What is this?
 Moving view transition with the blurring effect between view controllers for **Swift3**  
@@ -67,9 +67,13 @@ class viewController: UIViewController, URMovingTransitionMakable {
         ...
 
         if let cell = tableView.cellForRow(at: indexPath) as? URExampleTableViewCell {
-            self.makeTransitionAnimator(target: cell.imgView, baseOn: tableView.superview!, duration: 0.8)
+            self.makeBlurredTransitionAnimator(target: cell.imgView, baseOn: tableView.superview!, duration: 0.8)
             
             // if you want to add scaling animation, use makeTransitionAnimator function like below
+            // At the beginning, the scaling animation will be showed!!
+            // self.makeBlurredTransitionAnimator(target: cell.imgView, baseOn: tableView.superview!, duration: 0.8, needScaleEffect: true, scale: 1.05)
+            
+            // if you want to transition without the blur effect, you can use this make function!!
             // self.makeTransitionAnimator(target: cell.imgView, baseOn: tableView.superview!, duration: 0.8, needScaleEffect: true, scale: 1.05)
         }
         
@@ -102,6 +106,13 @@ class finishViewController: UIViewController, URMovingTransitionReceivable {
     ...
 }
 ```
+
+#### 3. 😀 Configurable parameters of UIMovingTransitionAnimator 😀
+  1) whether you need to clip the bounds of target view
+  2) scale up or down effect(This is applied at the beginning of transition. For using this, you need to set the )
+  3) finishing animation duration
+  4) finishing animation duration for the Pop transition
+  5) whether you need to run the whole transition completion callback right away after finishing the transition
 
 ## License
 
