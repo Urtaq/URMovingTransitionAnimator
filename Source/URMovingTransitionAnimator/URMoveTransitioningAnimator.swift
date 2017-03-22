@@ -80,7 +80,7 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
 
         self.movingView = self.copyView(view: view, needClipToBounds: needClipToBounds)
 
-        let startingOrigin = view.convert(view.frame, to: viewForStartingFrameCaculation)
+        let startingOrigin = view.convert(view.bounds, to: viewForStartingFrameCaculation)
         self.startingPoint = startingOrigin.origin
         self.startingSize = view.bounds.size
 
@@ -214,7 +214,9 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
             }
 
             UIView.animate(withDuration: finishDuration, animations: {
-                movedView.alpha = 0.1
+                if !transitionContext.transitionWasCancelled {
+                    movedView.alpha = 0.1
+                }
             }, completion: { (finish) in
                 movedView.removeFromSuperview()
 
@@ -327,6 +329,9 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
         guard let fromViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) else { return }
         guard let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) else { return }
 
+        var basicRelativeStartTime: Double = 0.0
+        var basicRelativeDuration: Double = 1.0
+
         let basicAnimationBlock: () -> Void = {
 
             UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5, animations: {
@@ -337,16 +342,21 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
                 }
             })
 
-            if self.scale == 1 || self.transitionDirection == .pop {
-                self.makeMovingKeyframe(self.movingView, finishingFrame, withRelativeStartTime: 0.0, relativeDuration: 1.0)
+            if self.transitionDirection == .pop {
+                self.makeMovingKeyframe(self.movingView, finishingFrame, withRelativeStartTime: basicRelativeStartTime, relativeDuration: basicRelativeDuration)
             } else {
-                UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.6, animations: {
-                    if let movedView = self.movingView {
-                        movedView.transform = CGAffineTransform(scaleX: self.scale, y: self.scale)
-                    }
-                })
+                if self.scale != 1 {
+                    UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.6, animations: {
+                        if let movedView = self.movingView {
+                            movedView.transform = CGAffineTransform(scaleX: self.scale, y: self.scale)
+                        }
+                    })
 
-                self.makeMovingKeyframe(self.movingView, finishingFrame, withRelativeStartTime: 0.6, relativeDuration: 0.4)
+                    basicRelativeStartTime = 0.6
+                    basicRelativeDuration = 0.4
+                }
+
+                self.makeMovingKeyframe(self.movingView, finishingFrame, withRelativeStartTime: basicRelativeStartTime, relativeDuration: basicRelativeDuration)
             }
         }
 

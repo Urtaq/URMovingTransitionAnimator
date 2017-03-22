@@ -48,7 +48,7 @@ public class URMoveBlurredTransitioningAnimator: URMoveTransitioningAnimator {
 
             UIView.animate(withDuration: finishDuration, animations: {
                 if !transitionContext.transitionWasCancelled {
-                    self.movingView?.alpha = 0.8
+                    self.movingView?.alpha = 0.1
                 }
             }, completion: { (finish) in
                 self.movingView?.removeFromSuperview()
@@ -73,7 +73,7 @@ public class URMoveBlurredTransitioningAnimator: URMoveTransitioningAnimator {
             self.fromViewSnapShot = fromViewController.view.snapshotView(afterScreenUpdates: false)!
             transitionContext.containerView.insertSubview(self.fromViewSnapShot!, belowSubview: blurredView)
         }
-        
+
         return finishingFrame
     }
 }
