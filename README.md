@@ -108,11 +108,17 @@ class finishViewController: UIViewController, URMovingTransitionReceivable {
 ```
 
 #### 3. 😀 Configurable parameters of UIMovingTransitionAnimator 😀
-  1) whether you need to clip the bounds of target view
-  2) scale up or down effect(This is applied at the beginning of transition. For using this, you need to set the )
-  3) finishing animation duration
-  4) finishing animation duration for the Pop transition
-  5) whether you need to run the whole transition completion callback right away after finishing the transition
+* whether you need to clip the bounds of target view
+* scale up or down effect  
+  * This is applied at the beginning of transition. 
+  * For using this, you need to set the scale value over 1.0 or below 1.0
+* finishing animation duration
+* finishing animation duration for the Pop transition
+* whether you need to run the whole transition completion callback right away after finishing the transition
+
+## To-Do
+
+- [ ] refactoring the initailization for the convenient usage
 
 ## License
 
