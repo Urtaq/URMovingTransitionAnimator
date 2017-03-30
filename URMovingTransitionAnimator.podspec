@@ -28,8 +28,7 @@ Pod::Spec.new do |s|
   #                   DESC
 
   s.homepage     = "https://github.com/jegumhon/URMovingTransitionAnimator"
-  s.screenshots  = "https://raw.githubusercontent.com/jegumhon/URMovingTransitionAnimator/master/Resources/URMovingTransitionAnimator1.gif", "https://raw.githubusercontent.com/jegumhon/URMovingTransitionAnimator/master/Resources/URMovingTransitionAnimator2_gesture.gif"
-
+  # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
   # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
