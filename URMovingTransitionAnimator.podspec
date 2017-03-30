@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
   #                   DESC
 
   s.homepage     = "https://github.com/jegumhon/URMovingTransitionAnimator"
-  # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
+  s.screenshots  = "https://github.com/jegumhon/URMovingTransitionAnimator/blob/master/Resources/URMovingTransitionAnimator1.gif", "https://github.com/jegumhon/URMovingTransitionAnimator/blob/master/Resources/URMovingTransitionAnimator2_gesture.gif"
 
 
   # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -63,7 +63,6 @@ Pod::Spec.new do |s|
   #
 
   s.platform     = :ios, "8.1"
-  # s.platform     = :ios, "5.0"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
