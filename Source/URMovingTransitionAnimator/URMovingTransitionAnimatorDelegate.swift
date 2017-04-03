@@ -60,7 +60,7 @@ public class URMovingTransitionAnimatorDelegate: NSObject, UINavigationControlle
 
     // MARK: UINavigationControllerDelegate
     public func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        if operation == .push || operation == .pop {
+        if (operation == .push && toVC is URMovingTransitionReceivable) || operation == .pop {
             if let customAnimator = self.movingTransitionViewController.animator as? URMoveTransitioningAnimator {
                 customAnimator.isConsiderableNavigationHeight = true
                 customAnimator.transitionDirection = operation
