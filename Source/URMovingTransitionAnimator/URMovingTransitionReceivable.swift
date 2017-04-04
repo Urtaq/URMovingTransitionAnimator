@@ -14,6 +14,9 @@ public protocol URMovingTransitionReceivable: class {
     func transitionFinishingFrame(startingFrame: CGRect) -> CGRect
     func makeTransitionView(originView: UIView)
     func removeTransitionView(duration: Double, completion: (() -> Void)?)
+
+    /// use this, if some gestures is conflicted with the screen pan gesture.
+    func requireForTransitionGesture(toFail: UIGestureRecognizer)
 }
 
 public extension URMovingTransitionReceivable where Self: UIViewController {
@@ -33,6 +36,12 @@ public extension URMovingTransitionReceivable where Self: UIViewController {
                 guard let block = completion else { return }
                 block()
             })
+        }
+    }
+
+    func requireForTransitionGesture(toFail otherGestureRecognizer: UIGestureRecognizer) {
+        if self.navigationController?.delegate is URMovingTransitionAnimatorDelegate {
+            otherGestureRecognizer.require(toFail: (self.navigationController?.delegate as! URMovingTransitionAnimatorDelegate).movingTransitionViewController.panGesture)
         }
     }
 }
