@@ -72,6 +72,7 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
     var isLazyCompletion: Bool                                  = false
     var transitionPreAction: (() -> Void)?
     var transitionCompletion: ((_ transitionContext: UIViewControllerContextTransitioning) -> Void)?
+    var transitionPostAction: (() -> Void)?
 
     var transitionContext: UIViewControllerContextTransitioning!
 
@@ -204,6 +205,9 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
         self.transitionCompletion = { (transitionContext) in
 
             guard let movedView = self.movingView else {
+                if let postAction = self.transitionPostAction {
+                    postAction()
+                }
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
                 return
             }
@@ -219,7 +223,9 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
                 }
             }, completion: { (finish) in
                 movedView.removeFromSuperview()
-
+                if let postAction = self.transitionPostAction {
+                    postAction()
+                }
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
             })
         }
@@ -372,6 +378,9 @@ public class URMoveTransitioningAnimator: NSObject, UIViewControllerAnimatedTran
             }
 
             guard let block = self.transitionCompletion else {
+                if let postAction = self.transitionPostAction {
+                    postAction()
+                }
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
                 return
             }

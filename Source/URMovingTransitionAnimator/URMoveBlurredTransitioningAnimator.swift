@@ -40,7 +40,7 @@ public class URMoveBlurredTransitioningAnimator: URMoveTransitioningAnimator {
         self.blurView = UIVisualEffectView()
 
         self.transitionCompletion = { (transitionContext) in
-
+print("begin ====> transitionCompletion:")
             let finishDuration = self.transitionDirection == .push ? self.transitionFinishDuration : self.transitionFinishDurationForPop
             if let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to), toViewController is URMovingTransitionReceivable && !self.isLazyCompletion {
                 (toViewController as! URMovingTransitionReceivable).removeTransitionView(duration: finishDuration, completion: nil)
@@ -54,7 +54,10 @@ public class URMoveBlurredTransitioningAnimator: URMoveTransitioningAnimator {
                 self.movingView?.removeFromSuperview()
                 self.blurView?.removeFromSuperview()
                 self.fromViewSnapShot?.removeFromSuperview()
-
+print("end ====> transitionCompletion:")
+                if let postAction = self.transitionPostAction {
+                    postAction()
+                }
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
             })
         }
