@@ -1,6 +1,10 @@
 # URMovingTransitionAnimator
 
  [![Swift](https://img.shields.io/badge/Swift-3.0%2B-orange.svg)](https://swift.org) [![podplatform](https://cocoapod-badges.herokuapp.com/p/URMovingTransitionAnimator/badge.png)](https://cocoapod-badges.herokuapp.com/p/URMovingTransitionAnimator/badge.png) [![pod](https://cocoapod-badges.herokuapp.com/v/URMovingTransitionAnimator/badge.png)](https://cocoapods.org/pods/URMovingTransitionAnimator) ![poddoc](https://img.shields.io/cocoapods/metrics/doc-percent/URMovingTransitionAnimator.svg) ![license](https://cocoapod-badges.herokuapp.com/l/URMovingTransitionAnimator/badge.png) ![travis](https://travis-ci.org/jegumhon/URMovingTransitionAnimator.svg?branch=master) [![codecov](https://codecov.io/gh/jegumhon/URMovingTransitionAnimator/branch/master/graph/badge.svg)](https://codecov.io/gh/jegumhon/URMovingTransitionAnimator) [![CocoaPods compatible](https://img.shields.io/badge/CocoaPods-compatible-4BC51D.svg?style=flat)](https://github.com/CocoaPods/CocoaPods)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fjegumhon%2FURMovingTransitionAnimator.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fjegumhon%2FURMovingTransitionAnimator?ref=badge_shield)
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fjegumhon%2FURMovingTransitionAnimator.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fjegumhon%2FURMovingTransitionAnimator?ref=badge_large)
 
 ## What is this?
 Moving view transition with the blurring effect between view controllers for **Swift3**  
